@@ -11,7 +11,7 @@ The good news is, if you are going to be a Contractor, you can expect to be paid
 for the lack of job security. When you’re calculating how much you need to earn, you could consider the
 following:
 
-You want to add up:
+**You want to add up:**
 
 | Item | Amount |
 |---|---|
