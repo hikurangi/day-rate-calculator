@@ -12,9 +12,8 @@ for the lack of job security. When you’re calculating how much you need to ear
 following:
 
 **You want to add up:**
-
-| Item | Amount |
 |---|---|
+| Item | Amount |
 | Salary | 80,000 |
 | 3% Kiwisaver Employer minimum contribution | 2,400 |
 | Depreciation over three years: cost of a $1500 laptop, you and your client going halves: (1,500/3)/2x your FTE. In this case, we’re assuming you are full time. So your FTE is 1. | 250 |
