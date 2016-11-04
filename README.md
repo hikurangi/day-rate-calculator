@@ -11,8 +11,8 @@ following:
 
 You want to add up:
 
-|a|b|
-|-|-|
+| | |
+|---|---|
 | Salary | 80,000 |
 | 3% Kiwisaver Employer minimum contribution | 2,400 |
 | Depreciation over three years: cost of a $1500
@@ -26,8 +26,8 @@ a decent plan | 120 |
 
 Now you need to calculate your day rate. Add up:
 
-|[]()| | |
-|-|-|-|
+| | |
+|---|---|
 | Annual leave days | 20 |
 | Sick leave days | 5 |
 | Public holidays (this is based on 2016) | 12 |
