@@ -1,6 +1,8 @@
 # day-rate-calculator
 A day rate calculator for contract workers using [the form]() from Jodie's awesome talk on contracts at EDA. Uses vanilla [React](https://facebook.github.io/react/) and the [create-react-app](https://github.com/facebookincubator/create-react-app) bootstrapper.
 
+# The form!
+
 ## Contracting
 So, you’re a Contractor! You pay your own taxes, you don’t get holidays, you probably have to provide your
 own computer equipment, and you’re there for a very specific task / project. You can probably be terminated
