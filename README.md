@@ -11,7 +11,6 @@ following:
 
 You want to add up:
 
-| | |
 |---|---|
 | Salary | 80,000 |
 | 3% Kiwisaver Employer minimum contribution | 2,400 |
@@ -26,7 +25,6 @@ a decent plan | 120 |
 
 Now you need to calculate your day rate. Add up:
 
-| | |
 |---|---|
 | Annual leave days | 20 |
 | Sick leave days | 5 |
