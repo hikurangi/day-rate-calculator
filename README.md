@@ -18,13 +18,9 @@ You want to add up:
 | Salary | 80,000 |
 | 3% Kiwisaver Employer minimum contribution | 2,400 |
 | Depreciation over three years: cost of a $1500 laptop, you and your client going halves: (1,500/3)/2x your FTE. In this case, we’re assuming you are full time. So your FTE is 1. | 250 |
-| Assuming you are having to use your own
-cellphone for work - $10 a month toward the cost of
-a decent plan | 120 |
+| Assuming you are having to use your own cellphone for work - $10 a month toward the cost of a decent plan | 120 |
 | Total | 82,770 |
-
-Now you need to calculate your day rate. Add up:
-
+| Now you need to calculate your day rate. Add up: |
 | Item | Amount |
 |---|---|
 | Annual leave days | 20 |
