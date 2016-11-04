@@ -11,8 +11,8 @@ following:
 
 You want to add up:
 
-|[]()| | |
-|-|-|-|
+|a|b|
+|-|-|
 | Salary | 80,000 |
 | 3% Kiwisaver Employer minimum contribution | 2,400 |
 | Depreciation over three years: cost of a $1500
