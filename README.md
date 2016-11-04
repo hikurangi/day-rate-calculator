@@ -10,7 +10,7 @@ for the lack of job security. When you’re calculating how much you need to ear
 following:
 
 You want to add up:
-|||
+| | |
 |-|-|
 | Salary | 80,000 |
 | 3% Kiwisaver Employer minimum contribution | 2,400 |
@@ -24,7 +24,7 @@ a decent plan | 120 |
 | Total | 82,770 |
 
 Now you need to calculate your day rate. Add up:
-|||
+| | |
 |-|-|
 | Annual leave days | 20 |
 | Sick leave days | 5 |
