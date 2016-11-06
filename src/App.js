@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-
-import logo from './logo.svg';
-import './App.css';
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme'
 
 import Calculator from './Calculator'
 
+import logo from './logo.svg'
+import './App.css'
 
 class App extends Component {
   render() {
@@ -16,10 +17,7 @@ class App extends Component {
           <h2>Contractor Day Rate Calculator</h2>
           <p>by Hikurangi Schaverien-Kaa with information from Jody at Enspiral Dev Academy</p>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <MuiThemeProvider>
+        <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
           <Calculator />
         </MuiThemeProvider>
       </div>

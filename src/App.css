@@ -18,6 +18,10 @@
   font-size: large;
 }
 
+.calculator {
+  background-color: #222; /*#222 rgb(48, 48, 48)*/
+}
+
 .mui-components {
   font-family: 'Roboto', sans-serif;
 }
