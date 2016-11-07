@@ -23,27 +23,30 @@ class Calculator extends Component {
   super(props);
     this.state = {
       selectable: false,
-      salaryValue: 0,
+      salary: 0,
       kiwiSaver: 0
     }
+    this.kiwisaverCalc = this.kiwisaverCalc.bind(this)
   }
 
-  kiwisaverCalc = function() {
+  // where to add dollar signs and commas
+
+  kiwisaverCalc () {
     this.setState({
-      kiwiSaver: 0.03*parseInt(this.state.salaryValue)
+      kiwiSaver: 0.3*parseInt(this.state.salary)
     })
   }
 
   handleChange = (event) => {
     this.setState({
-      salaryValue: event.target.value,
+      salary: event.target.value,
     })
-    kiwisaverCalc()
+    this.kiwisaverCalc() // needs to be called conditionally, not every time
   }
 
   render() {
     console.log('tableData', tableData)
-    console.log('salaryValue in state', this.state.salaryValue)
+    console.log('salary in state', this.state.salary)
     console.log('kiwiSaver in state', this.state.kiwiSaver);
     return (
       <div className = "calculator">
@@ -52,7 +55,7 @@ class Calculator extends Component {
           <TableRow>
             <TableRowColumn>Salary</TableRowColumn>
             <TableRowColumn>
-              <TextField
+              $ <TextField
                 hintText="Enter your expected full time salary"
                 onChange={this.handleChange}
                 />
@@ -62,7 +65,7 @@ class Calculator extends Component {
             <TableRowColumn>
               3% Kiwisaver Employer minimum contribution
             </TableRowColumn>
-            <TableRowColumn>$2,400</TableRowColumn>
+            <TableRowColumn>{this.state.salary < 10 ? null : '$ ' + this.state.kiwiSaver.toFixed(2)}</TableRowColumn> {/* should actually show lower values down to three cents */}
           </TableRow>
           <TableRow>
             <TableRowColumn>
