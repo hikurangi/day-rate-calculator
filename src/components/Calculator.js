@@ -18,16 +18,45 @@ const styles = {
 };
 
 class Calculator extends Component {
+
+  constructor(props) {
+  super(props);
+    this.state = {
+      selectable: false,
+      salaryValue: 0,
+      kiwiSaver: 0
+    }
+  }
+
+  kiwisaverCalc = function() {
+    this.setState({
+      kiwiSaver: 0.03*parseInt(this.state.salaryValue)
+    })
+  }
+
+  handleChange = (event) => {
+    this.setState({
+      salaryValue: event.target.value,
+    })
+    kiwisaverCalc()
+  }
+
   render() {
     console.log('tableData', tableData)
-    console.log('MUITHEME', this.muiTheme)
+    console.log('salaryValue in state', this.state.salaryValue)
+    console.log('kiwiSaver in state', this.state.kiwiSaver);
     return (
       <div className = "calculator">
-      <Table>
+      <Table selectable={this.state.selectable}>
         <TableBody>
           <TableRow>
-            <TableRowColumn>{ tableData[0].description }</TableRowColumn>
-            <TableRowColumn>{ tableData[0].amount }</TableRowColumn> {/* ^^ needs currency formatting... maybe handle that earlier */}
+            <TableRowColumn>Salary</TableRowColumn>
+            <TableRowColumn>
+              <TextField
+                hintText="Enter your expected full time salary"
+                onChange={this.handleChange}
+                />
+            </TableRowColumn>
           </TableRow>
           <TableRow>
             <TableRowColumn>
