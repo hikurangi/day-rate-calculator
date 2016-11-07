@@ -5,8 +5,8 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme'
 
 import Calculator from './Calculator'
 
-import logo from './logo.svg'
-import './App.css'
+import logo from '../assets/logo.svg'
+import '../App.css'
 
 class App extends Component {
   render() {
