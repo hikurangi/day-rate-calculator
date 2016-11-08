@@ -20,6 +20,7 @@
 
 .calculator {
   background-color: #222; /*#222 rgb(48, 48, 48)*/
+  padding: 40px;
 }
 
 .mui-components {

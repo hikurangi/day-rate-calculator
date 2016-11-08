@@ -1,21 +1,23 @@
 import React, { Component } from 'react'
 
-import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
+import {Table, TableBody, TableRow, TableRowColumn} from 'material-ui/Table'
+// TableHeader, TableHeaderColumn in material-ui/Table
+
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 
 import tableData from '../data/tableData'
 
-const styles = {
-  propContainer: {
-    width: 200,
-    overflow: 'hidden',
-    margin: '20px auto 0',
-  },
-  propToggleHeader: {
-    margin: '20px auto 10px',
-  },
-};
+// const styles = {
+//   propContainer: {
+//     width: 200,
+//     overflow: 'hidden',
+//     margin: '20px auto 0',
+//   },
+//   propToggleHeader: {
+//     margin: '20px auto 10px',
+//   },
+// };
 
 class Calculator extends Component {
 
@@ -27,29 +29,44 @@ class Calculator extends Component {
       kiwiSaver: 0
     }
     this.kiwisaverCalc = this.kiwisaverCalc.bind(this)
+    this.handleProp = this.handleProp.bind(this)
   }
 
   // where to add dollar signs and commas
 
+  // General event handler
+  handleProp(prop) {
+    return e => {
+      this.setState({[prop]:e.target.value})
+      switch (prop) {
+        case 'salary':
+          this.kiwisaverCalc()
+          break;
+        default:
+      }
+    }
+  }
+
+  // Lower level handler functions
   kiwisaverCalc () {
     this.setState({
-      kiwiSaver: 0.3*parseInt(this.state.salary)
+      kiwiSaver: 0.3 * +(this.state.salary) || 0
     })
   }
 
-  handleChange = (event) => {
-    this.setState({
-      salary: event.target.value,
-    })
-    this.kiwisaverCalc() // needs to be called conditionally, not every time
-  }
+  // handleChange = (event) => {
+  //   this.setState({
+  //     salary: event.target.value,
+  //   })
+  //   this.kiwisaverCalc() // needs to be called conditionally, not every time
+  // }
 
   render() {
     console.log('tableData', tableData)
     console.log('salary in state', this.state.salary)
     console.log('kiwiSaver in state', this.state.kiwiSaver);
     return (
-      <div className = "calculator">
+      <div className="calculator">
       <Table selectable={this.state.selectable}>
         <TableBody>
           <TableRow>
@@ -57,7 +74,7 @@ class Calculator extends Component {
             <TableRowColumn>
               $ <TextField
                 hintText="Enter your expected full time salary"
-                onChange={this.handleChange}
+                onChange={this.handleProp('salary')}
                 />
             </TableRowColumn>
           </TableRow>
@@ -65,7 +82,7 @@ class Calculator extends Component {
             <TableRowColumn>
               3% Kiwisaver Employer minimum contribution
             </TableRowColumn>
-            <TableRowColumn>{this.state.salary < 10 ? null : '$ ' + this.state.kiwiSaver.toFixed(2)}</TableRowColumn> {/* should actually show lower values down to three cents */}
+            <TableRowColumn>{'$ ' + this.state.kiwiSaver.toFixed(2)}</TableRowColumn> {/* should actually show lower values down to three cents */}
           </TableRow>
           <TableRow>
             <TableRowColumn>
