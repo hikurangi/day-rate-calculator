@@ -34,7 +34,7 @@ class Calculator extends Component {
 
   // where to add dollar signs and commas
 
-  // General event handler
+  // generic event handler
   handleProp(prop) {
     return e => {
       this.setState({[prop]:e.target.value})
