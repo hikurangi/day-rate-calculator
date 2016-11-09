@@ -26,10 +26,12 @@ class Calculator extends Component {
     this.state = {
       selectable: false,
       salary: 0,
-      kiwiSaver: 0
+      kiwiSaver: 0,
+      depreciation: 0
     }
-    this.kiwisaverCalc = this.kiwisaverCalc.bind(this)
     this.handleProp = this.handleProp.bind(this)
+    this.kiwisaverCalc = this.kiwisaverCalc.bind(this)
+    this.depreciationCalc = this.depreciationCalc.bind(this)
   }
 
   // where to add dollar signs and commas
@@ -42,24 +44,27 @@ class Calculator extends Component {
         case 'salary':
           this.kiwisaverCalc()
           break;
+        case 'depreciation':
+          this.depreciationCalc()
+          break;
         default:
+          null;
       }
     }
   }
 
-  // Lower level handler functions
+  // lower level handler functions
   kiwisaverCalc () {
     this.setState({
       kiwiSaver: 0.3 * +(this.state.salary) || 0
     })
   }
 
-  // handleChange = (event) => {
-  //   this.setState({
-  //     salary: event.target.value,
-  //   })
-  //   this.kiwisaverCalc() // needs to be called conditionally, not every time
-  // }
+  depreciationCalc () {
+    this.setState({
+      depreciation: 0.3 * +(this.state.salary) || 0
+    })
+  }
 
   render() {
     console.log('tableData', tableData)
@@ -86,7 +91,11 @@ class Calculator extends Component {
           </TableRow>
           <TableRow>
             <TableRowColumn>
-              Depreciation over three years: cost of a $1500 laptop,you and your client going halves: (1,500/3)/2x your FTE. In this case, we’re assuming you are full time. So your FTE is 1.
+              <TextField
+                hintText="The cost of a laptop"
+                floatingLabelText="Depreciation over three years"
+                onChange={this.handleProp('depreciation')}
+              />
             </TableRowColumn>
             <TableRowColumn>$250</TableRowColumn>
           </TableRow>
