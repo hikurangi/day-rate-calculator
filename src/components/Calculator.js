@@ -91,11 +91,15 @@ class Calculator extends Component {
           </TableRow>
           <TableRow>
             <TableRowColumn>
-              <TextField
+              {/*}<TextField
                 hintText="The cost of a laptop"
                 floatingLabelText="Depreciation over three years"
                 onChange={this.handleProp('depreciation')}
-              />
+              />*/}
+              Depreciation:<br/>
+            The cost of a laptop: $ <TextField />
+          Client pays a 50% share<br/>
+              Your <a href="http://centraltas.co.nz/assets/SWS/HWIP/A-practical-guide-to-FTE-reporting-2015.pdf" target="blank">FTE</a>
             </TableRowColumn>
             <TableRowColumn>$250</TableRowColumn>
           </TableRow>
