@@ -28,7 +28,8 @@ class Calculator extends Component {
       salary: 0,
       kiwiSaver: 0,
       laptopValue: 0,
-      fte: 0
+      fte: 0,
+      depreciation: 0
     }
     this.handleProp = this.handleProp.bind(this)
     this.kiwisaverCalc = this.kiwisaverCalc.bind(this)
@@ -38,18 +39,15 @@ class Calculator extends Component {
   // where to add dollar signs and commas
 
   // generic event handler
-  handleProp(prop, fte) {
+  handleProp(prop) {
     return e => {
       this.setState({[prop]:e.target.value})
       switch (prop) {
         case 'salary':
           this.kiwisaverCalc()
           break;
-        case 'depreciation':
-          this.depreciationCalc(fte)
-          break;
         default:
-          console.log('possible error')
+          console.log('state set with', this.state.prop)
       }
     }
   }
@@ -61,10 +59,9 @@ class Calculator extends Component {
     })
   }
 
-  depreciationCalc (fte) {
+  depreciationCalc () {
     this.setState({
-      laptopValue: 0.3 * +(this.state.salary) || 0,
-      fte
+      depreciation: ( this.state.laptopValue / 3 ) / this.state.fte * 2
     })
   }
 
@@ -93,20 +90,21 @@ class Calculator extends Component {
           </TableRow>
           <TableRow>
             <TableRowColumn>
-              {/*}<TextField
-                hintText="The cost of a laptop"
-                floatingLabelText="Depreciation over three years"
-                onChange={this.handleProp('depreciation')}
-              />*/}
-              Depreciation<br/>
-            The cost of your laptop: $
-            <TextField
-              onChange={this.handleProp('depreciation')}
-            />
-          Client pays a 50% share<br/>
-              Your <a href="http://centraltas.co.nz/assets/SWS/HWIP/A-practical-guide-to-FTE-reporting-2015.pdf" target="blank">FTE</a>
+              Depreciation
+              <br/>
+              The cost of your laptop: $
+              <TextField
+                onChange={this.handleProp('laptopValue')}
+              />
+              <br/>
+              Client pays a 50% share
+              <br/>
+              Your <a href="http://centraltas.co.nz/assets/SWS/HWIP/A-practical-guide-to-FTE-reporting-2015.pdf" target="blank">FTE</a>: $ 
+              <TextField
+                onChange={this.handleProp('fte')}
+              />
             </TableRowColumn>
-            <TableRowColumn>$250</TableRowColumn>
+            <TableRowColumn>{'$ ' + this.state.depreciation.toFixed(2)}</TableRowColumn>
           </TableRow>
           <TableRow>
             <TableRowColumn>
