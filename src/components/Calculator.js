@@ -28,7 +28,8 @@ class Calculator extends Component {
       salary: 0,
       kiwiSaver: 0,
       laptopValue: 0,
-      depreciation: 0
+      depreciation: 0,
+      fte: 0
     }
     this.handleProp = this.handleProp.bind(this)
     this.kiwisaverCalc = this.kiwisaverCalc.bind(this)
@@ -115,7 +116,7 @@ class Calculator extends Component {
                 onChange={this.handleProp('fte')}
               />
             </TableRowColumn>
-            <TableRowColumn>{'$ ' + this.state.depreciation.toFixed(2)}</TableRowColumn>
+            <TableRowColumn>{'$ ' +  (this.state.depreciation !== (NaN || Infinity)) ? this.state.kiwiSaver.toFixed(2) : null }</TableRowColumn>
           </TableRow>
           <TableRow>
             <TableRowColumn>
