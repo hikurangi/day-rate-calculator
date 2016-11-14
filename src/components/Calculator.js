@@ -28,12 +28,12 @@ class Calculator extends Component {
       salary: 0,
       kiwiSaver: 0,
       laptopValue: 0,
-      fte: 0,
       depreciation: 0
     }
     this.handleProp = this.handleProp.bind(this)
     this.kiwisaverCalc = this.kiwisaverCalc.bind(this)
     this.depreciationCalc = this.depreciationCalc.bind(this)
+    this.propSwitch = this.propSwitch.bind(this)
   }
 
   // where to add dollar signs and commas
@@ -41,17 +41,22 @@ class Calculator extends Component {
   // generic event handler
   handleProp(prop) {
     return e => {
-      this.setState({[prop]:e.target.value})
-      switch (prop) {
-        case 'salary':
-          this.kiwisaverCalc()
-          break;
-        case 'fte':
-          this.depreciationCalc()
-          break;
-        default:
-          console.log('state set with', this.state[prop])
-      }
+      this.setState({[prop]:e.target.value}, this.propSwitch(prop))
+    }
+  }
+
+  // propSwitch - handles conditional function execution after the setState call in handleProp
+
+  propSwitch (prop) {
+    switch (prop) {
+      case 'salary':
+        this.kiwisaverCalc()
+        break;
+      case 'fte':
+        this.depreciationCalc()
+        break;
+      default:
+        console.log('state set with', this.state[prop])
     }
   }
 
@@ -63,15 +68,18 @@ class Calculator extends Component {
   }
 
   depreciationCalc () {
+    console.log('THIS.STATE.FTE', this.state.fte);
     this.setState({
       depreciation: ( this.state.laptopValue / 3 ) / this.state.fte * 2
     })
+    console.log('depreciation just after setting state', this.state.depreciation)
   }
 
   render() {
     console.log('tableData', tableData)
     console.log('salary in state', this.state.salary)
-    console.log('kiwiSaver in state', this.state.kiwiSaver);
+    console.log('kiwiSaver in state', this.state.kiwiSaver)
+    console.log('depreciation info in state', this.state.laptopValue, this.state.fte, this.state.depreciation);
     return (
       <div className="calculator">
       <Table selectable={this.state.selectable}>
@@ -102,7 +110,7 @@ class Calculator extends Component {
               <br/>
               Client pays a 50% share
               <br/>
-              Your <a href="http://centraltas.co.nz/assets/SWS/HWIP/A-practical-guide-to-FTE-reporting-2015.pdf" target="blank">FTE</a>: $
+              Your <a href="http://centraltas.co.nz/assets/SWS/HWIP/A-practical-guide-to-FTE-reporting-2015.pdf" target="blank">FTE </a>
               <TextField
                 onChange={this.handleProp('fte')}
               />
