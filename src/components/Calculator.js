@@ -27,7 +27,8 @@ class Calculator extends Component {
       selectable: false,
       salary: 0,
       kiwiSaver: 0,
-      depreciation: 0
+      laptopValue: 0,
+      fte: 0
     }
     this.handleProp = this.handleProp.bind(this)
     this.kiwisaverCalc = this.kiwisaverCalc.bind(this)
@@ -37,7 +38,7 @@ class Calculator extends Component {
   // where to add dollar signs and commas
 
   // generic event handler
-  handleProp(prop) {
+  handleProp(prop, fte) {
     return e => {
       this.setState({[prop]:e.target.value})
       switch (prop) {
@@ -45,10 +46,10 @@ class Calculator extends Component {
           this.kiwisaverCalc()
           break;
         case 'depreciation':
-          this.depreciationCalc()
+          this.depreciationCalc(fte)
           break;
         default:
-          null;
+          console.log('possible error')
       }
     }
   }
@@ -56,13 +57,14 @@ class Calculator extends Component {
   // lower level handler functions
   kiwisaverCalc () {
     this.setState({
-      kiwiSaver: 0.3 * +(this.state.salary) || 0
+      kiwiSaver: 0.3 * +(this.state.salary) || 0 // using unary plus operator, similar to Number()
     })
   }
 
-  depreciationCalc () {
+  depreciationCalc (fte) {
     this.setState({
-      depreciation: 0.3 * +(this.state.salary) || 0
+      laptopValue: 0.3 * +(this.state.salary) || 0,
+      fte
     })
   }
 
@@ -96,8 +98,11 @@ class Calculator extends Component {
                 floatingLabelText="Depreciation over three years"
                 onChange={this.handleProp('depreciation')}
               />*/}
-              Depreciation:<br/>
-            The cost of a laptop: $ <TextField />
+              Depreciation<br/>
+            The cost of your laptop: $
+            <TextField
+              onChange={this.handleProp('depreciation')}
+            />
           Client pays a 50% share<br/>
               Your <a href="http://centraltas.co.nz/assets/SWS/HWIP/A-practical-guide-to-FTE-reporting-2015.pdf" target="blank">FTE</a>
             </TableRowColumn>
