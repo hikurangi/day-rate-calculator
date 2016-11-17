@@ -116,7 +116,7 @@ class Calculator extends Component {
                 onChange={this.handleProp('fte')}
               />
             </TableRowColumn>
-            <TableRowColumn>{'$ ' +  (this.state.depreciation !== (NaN || Infinity)) ? this.state.kiwiSaver.toFixed(2) : null }</TableRowColumn>
+            <TableRowColumn>{'$ ' +  (this.state.depreciation !== (NaN || Infinity)) ? this.state.depreciation.toFixed(2) : null }</TableRowColumn>
           </TableRow>
           <TableRow>
             <TableRowColumn>
