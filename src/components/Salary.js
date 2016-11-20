@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 
 import { TableRow, TableRowColumn } from 'material-ui/Table'
 import TextField from 'material-ui/TextField'
@@ -11,7 +11,7 @@ class Salary extends Component {
         <TableRowColumn>
           $ <TextField
             hintText="Enter your expected full time salary"
-            onChange={this.handleProp('salary')}
+            onChange={this.props.handleProp('salary')}
             />
         </TableRowColumn>
       </TableRow>

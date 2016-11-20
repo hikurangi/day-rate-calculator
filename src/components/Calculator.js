@@ -6,6 +6,8 @@ import {Table, TableBody, TableRow, TableRowColumn} from 'material-ui/Table'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 
+import Salary from './Salary'
+
 import tableData from '../data/tableData'
 
 // const styles = {
@@ -85,15 +87,7 @@ class Calculator extends Component {
       <div className="calculator">
       <Table selectable={this.state.selectable}>
         <TableBody>
-          <TableRow>
-            <TableRowColumn>Salary</TableRowColumn>
-            <TableRowColumn>
-              $ <TextField
-                hintText="Enter your expected full time salary"
-                onChange={this.handleProp('salary')}
-                />
-            </TableRowColumn>
-          </TableRow>
+          <Salary handleProp={this.handleProp} />
           <TableRow>
             <TableRowColumn>
               3% Kiwisaver Employer minimum contribution
