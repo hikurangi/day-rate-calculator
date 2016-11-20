@@ -3,15 +3,14 @@ import React, { Component } from 'react'
 // Material UI components
 import {Table, TableBody, TableRow, TableRowColumn} from 'material-ui/Table'
 
-// Optional...
+// ?...
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 
 // Child components
 import Salary from './Salary'
 import Kiwisaver from './Kiwisaver'
-
-import tableData from '../data/tableData'
+import Depreciation from './Depreciation'
 
 class Calculator extends Component {
 
@@ -70,7 +69,6 @@ class Calculator extends Component {
   }
 
   render() {
-    console.log('tableData', tableData)
     console.log('salary in state', this.state.salary)
     console.log('kiwisaver in state', this.state.kiwisaver)
     console.log('depreciation info in state', this.state.laptopValue, this.state.fte, this.state.depreciation);
@@ -79,8 +77,14 @@ class Calculator extends Component {
       <Table selectable={this.state.selectable}>
         <TableBody>
           <Salary handleProp={this.handleProp} />
-          <Kiwisaver handleProp={this.handleProp} />
-          <Depreciation handleProp={this.handleProp} />
+          <Kiwisaver
+            handleProp={this.handleProp}
+            kiwisaver={this.state.kiwisaver}
+          />
+          <Depreciation
+            handleProp={this.handleProp}
+            depreciation={this.state.depreciation}
+            />
           <TableRow>
             <TableRowColumn>
               Assuming you are having to use your own cellphone for work - $10 a month toward the cost of a decent plan
