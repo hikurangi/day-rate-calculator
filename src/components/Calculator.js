@@ -1,25 +1,17 @@
 import React, { Component } from 'react'
 
+// Material UI components
 import {Table, TableBody, TableRow, TableRowColumn} from 'material-ui/Table'
-// TableHeader, TableHeaderColumn in material-ui/Table
 
+// Optional...
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 
+// Child components
 import Salary from './Salary'
+import Kiwisaver from './Kiwisaver'
 
 import tableData from '../data/tableData'
-
-// const styles = {
-//   propContainer: {
-//     width: 200,
-//     overflow: 'hidden',
-//     margin: '20px auto 0',
-//   },
-//   propToggleHeader: {
-//     margin: '20px auto 10px',
-//   },
-// };
 
 class Calculator extends Component {
 
@@ -28,7 +20,7 @@ class Calculator extends Component {
     this.state = {
       selectable: false,
       salary: 0,
-      kiwiSaver: 0,
+      kiwisaver: 0,
       laptopValue: 0,
       depreciation: 0,
       fte: 0
@@ -49,7 +41,6 @@ class Calculator extends Component {
   }
 
   // propSwitch - handles conditional function execution after the setState call in handleProp
-
   propSwitch (prop) {
     switch (prop) {
       case 'salary':
@@ -66,7 +57,7 @@ class Calculator extends Component {
   // lower level handler functions
   kiwisaverCalc () {
     this.setState({
-      kiwiSaver: 0.3 * +(this.state.salary) || 0 // using unary plus operator, similar to Number()
+      kiwisaver: 0.3 * +(this.state.salary) || 0 // using unary plus operator, similar to Number()
     })
   }
 
@@ -81,37 +72,15 @@ class Calculator extends Component {
   render() {
     console.log('tableData', tableData)
     console.log('salary in state', this.state.salary)
-    console.log('kiwiSaver in state', this.state.kiwiSaver)
+    console.log('kiwisaver in state', this.state.kiwisaver)
     console.log('depreciation info in state', this.state.laptopValue, this.state.fte, this.state.depreciation);
     return (
       <div className="calculator">
       <Table selectable={this.state.selectable}>
         <TableBody>
           <Salary handleProp={this.handleProp} />
-          <TableRow>
-            <TableRowColumn>
-              3% Kiwisaver Employer minimum contribution
-            </TableRowColumn>
-            <TableRowColumn>{'$ ' + this.state.kiwiSaver.toFixed(2)}</TableRowColumn> {/* should actually show lower values down to three cents */}
-          </TableRow>
-          <TableRow>
-            <TableRowColumn>
-              Depreciation
-              <br/>
-              The cost of your laptop: $
-              <TextField
-                onChange={this.handleProp('laptopValue')}
-              />
-              <br/>
-              Client pays a 50% share
-              <br/>
-              Your <a href="http://centraltas.co.nz/assets/SWS/HWIP/A-practical-guide-to-FTE-reporting-2015.pdf" target="blank">FTE </a>
-              <TextField
-                onChange={this.handleProp('fte')}
-              />
-            </TableRowColumn>
-            <TableRowColumn>{'$ ' +  (this.state.depreciation !== (NaN || Infinity)) ? this.state.depreciation.toFixed(2) : null }</TableRowColumn>
-          </TableRow>
+          <Kiwisaver handleProp={this.handleProp} />
+          <Depreciation handleProp={this.handleProp} />
           <TableRow>
             <TableRowColumn>
               Assuming you are having to use your own cellphone for work - $10 a month toward the cost of a decent plan
