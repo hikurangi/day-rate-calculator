@@ -8,6 +8,7 @@ import Salary from './Salary'
 import Kiwisaver from './Kiwisaver'
 import Depreciation from './Depreciation'
 import Cellphone from './Cellphone'
+import Subtotal from './Subtotal'
 
 class Calculator extends Component {
 
@@ -18,9 +19,11 @@ class Calculator extends Component {
       salary: 0,
       kiwisaver: 0,
       laptopValue: 0,
-      depreciation: 0,
       fte: 0,
+      depreciation: 0,
+      cellMonthly: 0,
       cellphone: 0,
+      subtotal: 0
     }
   }
 
@@ -39,8 +42,12 @@ class Calculator extends Component {
       case 'salary':
         this.kiwisaverCalc()
         break;
+      case 'laptopValue': // fall-through - omitting the 'break' between the two cases effectively means 'laptopValue' || 'fte' in this (nested) case
       case 'fte':
         this.depreciationCalc()
+        break;
+      case 'cellMonthly':
+        this.cellphoneCalc()
         break;
       default:
         console.log('state set with', this.state[prop])
@@ -50,13 +57,25 @@ class Calculator extends Component {
   // lower level handler functions
   kiwisaverCalc = () => {
     this.setState({
-      kiwisaver: 0.3 * +(this.state.salary) || 0 // using unary plus operator, similar to Number()
+      kiwisaver: 0.03 * +(this.state.salary) || 0 // using unary plus operator, similar to Number()
     })
   }
 
   depreciationCalc = () => {
     this.setState({
       depreciation: ( this.state.laptopValue / 3 ) / this.state.fte * 2
+    })
+  }
+
+  cellphoneCalc = () => {
+    this.setState({
+      cellphone: this.state.cellMonthly * 12
+    })
+  }
+
+  subtotalCalc = () => {
+    this.setState({
+      subtotal: this.state.salary + this.state.kiwisaver + this.state.depreciation + this.state.cellphone
     })
   }
 
@@ -73,13 +92,8 @@ class Calculator extends Component {
             handleProp={this.handleProp}
             depreciation={this.state.depreciation}
             />
-          <Cellphone
-            handleProp={this.handleProp}
-          />
-          <TableRow>
-            <TableRowColumn>Total</TableRowColumn>
-            <TableRowColumn>$82,770</TableRowColumn>
-          </TableRow>
+          <Cellphone handleProp={this.handleProp} />
+          <Subtotal subtotal={this.state.subtotal} />
           <TableRow>
             <TableRowColumn>Annual leave days</TableRowColumn>
             <TableRowColumn>20</TableRowColumn>

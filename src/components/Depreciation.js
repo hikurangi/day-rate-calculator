@@ -8,9 +8,8 @@ class Depreciation extends Component {
     return (
       <TableRow>
         <TableRowColumn>
-          Depreciation
-          <br/>
-          The cost of your laptop: $
+          <h2>Depreciation</h2>
+          The cost of your laptop:
           <TextField
             onChange={this.props.handleProp('laptopValue')}
           />
@@ -22,7 +21,8 @@ class Depreciation extends Component {
             onChange={this.props.handleProp('fte')}
           />
         </TableRowColumn>
-        <TableRowColumn>{'$ ' +  (this.props.depreciation !== (NaN || Infinity)) ? this.props.depreciation.toFixed(2) : null }</TableRowColumn>
+        <TableRowColumn>
+          { this.props.depreciation && ( this.props.depreciation !== Infinity ) ? '$ ' + (this.props.depreciation * 12).toFixed(2) : null }</TableRowColumn>
       </TableRow>
     )
   }

@@ -7,12 +7,12 @@ class Salary extends Component {
   render() {
     return (
       <TableRow>
-        <TableRowColumn>Salary</TableRowColumn>
+        <TableRowColumn><h2>Salary</h2></TableRowColumn>
         <TableRowColumn>
-          $ <TextField
+          <TextField
             hintText="Enter your expected full time salary"
             onChange={this.props.handleProp('salary')}
-            />
+          />
         </TableRowColumn>
       </TableRow>
     )
