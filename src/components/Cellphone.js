@@ -9,7 +9,7 @@ class Cellphone extends Component {
         <TableRowColumn>
           Monthly cellphone plan contribution
         </TableRowColumn>
-        <TableRowColumn>{ this.props.cellphone ? '$ ' + (this.props.cellphone * 12).toFixed(2) : null }</TableRowColumn>
+        <TableRowColumn>{ this.props.cellphone ? '$ ' + (this.props.cellphone * 12).toFixed(2)*12 : null }</TableRowColumn>
       </TableRow>
     )
   }

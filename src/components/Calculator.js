@@ -22,23 +22,19 @@ class Calculator extends Component {
       fte: 0,
       cellphone: 0,
     }
-    this.handleProp = this.handleProp.bind(this)
-    this.kiwisaverCalc = this.kiwisaverCalc.bind(this)
-    this.depreciationCalc = this.depreciationCalc.bind(this)
-    this.propSwitch = this.propSwitch.bind(this)
   }
 
   // where to add dollar signs and commas
 
   // generic event handler
-  handleProp(prop) {
+  handleProp = (prop) => {
     return e => {
       this.setState({[prop]:e.target.value}, this.propSwitch(prop)) // makes sure the property handler functions are using the most up-to-date version of the state
     }
   }
 
   // propSwitch - handles conditional function execution after the setState call in handleProps
-  propSwitch (prop) {
+  propSwitch = (prop) => {
     switch (prop) {
       case 'salary':
         this.kiwisaverCalc()
@@ -52,13 +48,13 @@ class Calculator extends Component {
   }
 
   // lower level handler functions
-  kiwisaverCalc () {
+  kiwisaverCalc = () => {
     this.setState({
       kiwisaver: 0.3 * +(this.state.salary) || 0 // using unary plus operator, similar to Number()
     })
   }
 
-  depreciationCalc () {
+  depreciationCalc = () => {
     this.setState({
       depreciation: ( this.state.laptopValue / 3 ) / this.state.fte * 2
     })
