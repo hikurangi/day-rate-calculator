@@ -9,6 +9,13 @@ import Kiwisaver from './Kiwisaver'
 import Depreciation from './Depreciation'
 import Cellphone from './Cellphone'
 import Subtotal from './Subtotal'
+import AnnualLeave from './AnnualLeave'
+import SickLeave from './SickLeave'
+import PublicHolidays from './PublicHolidays'
+import Weekends from './Weekends'
+import DaysNotWorking from './DaysNotWorking'
+import DaysWorking from './DaysWorking'
+import Total from './Total'
 
 class Calculator extends Component {
 
@@ -83,6 +90,7 @@ class Calculator extends Component {
     return (
       <Table selectable={this.state.selectable}>
         <TableBody>
+          
           <Salary handleProp={this.handleProp} />
           <Kiwisaver
             handleProp={this.handleProp}
@@ -91,38 +99,18 @@ class Calculator extends Component {
           <Depreciation
             handleProp={this.handleProp}
             depreciation={this.state.depreciation}
-            />
+          />
           <Cellphone handleProp={this.handleProp} />
           <Subtotal subtotal={this.state.subtotal} />
-          <TableRow>
-            <TableRowColumn>Annual leave days</TableRowColumn>
-            <TableRowColumn>20</TableRowColumn>
-          </TableRow>
-          <TableRow>
-            <TableRowColumn>Sick leave days</TableRowColumn>
-            <TableRowColumn>5</TableRowColumn>
-          </TableRow>
-          <TableRow>
-            <TableRowColumn>Public holidays (this is based on 2016)	</TableRowColumn>
-            <TableRowColumn>12</TableRowColumn>
-          </TableRow>
-          <TableRow>
-            <TableRowColumn>Weekends</TableRowColumn>
-            <TableRowColumn>104</TableRowColumn>
-          </TableRow>
-          <TableRow>
-            <TableRowColumn>Total days you are NOT working</TableRowColumn>
-            <TableRowColumn>141</TableRowColumn>
-          </TableRow>
-          <TableRow>
-            <TableRowColumn>Total days you ARE working (365 minus 141)</TableRowColumn>
-            <TableRowColumn>224</TableRowColumn>
-          </TableRow>
-          <TableRow>
-            <TableRowColumn>Your day rate is $82,770 / 224	</TableRowColumn>
-            <TableRowColumn>$369.50</TableRowColumn>
-          </TableRow>
+          <AnnualLeave />
+          <SickLeave />
+          <PublicHolidays />
+          <Weekends />
+          <DaysNotWorking />
+          <DaysWorking />
+
         </TableBody>
+
       </Table>
     );
   }
