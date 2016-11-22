@@ -8,7 +8,7 @@ class Depreciation extends Component {
     return (
       <TableRow>
         <TableRowColumn>
-          <h2>Depreciation</h2>
+          <h3>Depreciation</h3>
           The cost of your laptop:
           <TextField
             onChange={this.props.handleProp('laptopValue')}

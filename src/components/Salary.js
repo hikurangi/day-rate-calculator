@@ -7,7 +7,7 @@ class Salary extends Component {
   render() {
     return (
       <TableRow>
-        <TableRowColumn><h2>Salary</h2></TableRowColumn>
+        <TableRowColumn><h3>Salary</h3></TableRowColumn>
         <TableRowColumn>
           <TextField
             hintText="Enter your expected full time salary"

@@ -6,7 +6,7 @@ class Subtotal extends Component {
   render() {
     return (
       <TableRow>
-        <TableRowColumn>Total</TableRowColumn>
+        <TableRowColumn><h3>Total</h3></TableRowColumn>
         <TableRowColumn>{ this.props.subtotal ? '$ ' + (this.props.subtotal).toFixed(2) : null }</TableRowColumn>
       </TableRow>
     )

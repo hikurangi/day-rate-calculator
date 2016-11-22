@@ -9,7 +9,7 @@ class Kiwisaver extends Component {
     return (
       <TableRow>
         <TableRowColumn>
-          <h2>3% Kiwisaver Employer minimum contribution</h2>
+          <h3>3% Kiwisaver Employer minimum contribution</h3>
         </TableRowColumn>
         <TableRowColumn>
           { this.props.kiwisaver ? '$ ' + (this.props.kiwisaver * 12).toFixed(2) : null }
