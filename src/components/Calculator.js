@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 // Material UI components
-import {Table, TableBody, TableRow, TableRowColumn} from 'material-ui/Table'
+import {Table, TableBody} from 'material-ui/Table'
 
 // Child components
 import Salary from './Salary'
@@ -49,7 +49,7 @@ class Calculator extends Component {
       case 'salary':
         this.kiwisaverCalc()
         break;
-      case 'laptopValue': // fall-through - omitting the 'break' between the two cases effectively means 'laptopValue' || 'fte' in this (nested) case
+      case 'laptopValue': // fall-through - omitting the 'break' between the two cases effectively means ( 'laptopValue' || 'fte' ) in this (nested) case
       case 'fte':
         this.depreciationCalc()
         break;
@@ -88,9 +88,11 @@ class Calculator extends Component {
 
   render() {
     return (
+      
       <Table selectable={this.state.selectable}>
+
         <TableBody>
-          
+
           <Salary handleProp={this.handleProp} />
           <Kiwisaver
             handleProp={this.handleProp}
@@ -108,6 +110,7 @@ class Calculator extends Component {
           <Weekends />
           <DaysNotWorking />
           <DaysWorking />
+          <Total />
 
         </TableBody>
 
