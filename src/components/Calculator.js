@@ -70,7 +70,7 @@ class Calculator extends Component {
 
   depreciationCalc = () => {
     this.setState({
-      depreciation: ( this.state.laptopValue / 3 ) / this.state.fte * 2
+      depreciation: ( this.state.laptopValue / 3 ) / ( this.state.fte * 2 )
     })
   }
 
@@ -88,7 +88,7 @@ class Calculator extends Component {
 
   render() {
     return (
-      
+
       <Table selectable={this.state.selectable}>
 
         <TableBody>
