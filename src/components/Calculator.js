@@ -4,18 +4,24 @@ import React, { Component } from 'react'
 import {Table, TableBody} from 'material-ui/Table'
 
 // Child components
-import Salary from './Salary'
-import Kiwisaver from './Kiwisaver'
-import Depreciation from './Depreciation'
-import Cellphone from './Cellphone'
-import Subtotal from './Subtotal'
-import AnnualLeave from './AnnualLeave'
-import SickLeave from './SickLeave'
-import PublicHolidays from './PublicHolidays'
-import Weekends from './Weekends'
-import DaysNotWorking from './DaysNotWorking'
-import DaysWorking from './DaysWorking'
-import Total from './Total'
+
+  // Salary and Costs
+  import Salary from './Salary'
+  import Kiwisaver from './Kiwisaver'
+  import Depreciation from './Depreciation'
+  import Cellphone from './Cellphone'
+  import Subtotal from './Subtotal'
+
+  // Days
+  import AnnualLeave from './AnnualLeave'
+  import SickLeave from './SickLeave'
+  import PublicHolidays from './PublicHolidays'
+  import Weekends from './Weekends'
+  import DaysNotWorking from './DaysNotWorking'
+  import DaysWorking from './DaysWorking'
+
+  // Day Rate
+  import Total from './Total'
 
 class Calculator extends Component {
 
@@ -94,22 +100,33 @@ class Calculator extends Component {
         <TableBody>
 
           <Salary handleProp={this.handleProp} />
+
           <Kiwisaver
             handleProp={this.handleProp}
             kiwisaver={this.state.kiwisaver}
           />
+
           <Depreciation
             handleProp={this.handleProp}
             depreciation={this.state.depreciation}
           />
+
           <Cellphone handleProp={this.handleProp} />
+
           <Subtotal subtotal={this.state.subtotal} />
+
           <AnnualLeave />
+
           <SickLeave />
+
           <PublicHolidays />
+
           <Weekends />
+
           <DaysNotWorking />
+
           <DaysWorking />
+
           <Total />
 
         </TableBody>
