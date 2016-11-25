@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 
 // Material UI components
-import {Table, TableBody} from 'material-ui/Table'
+import { Table, TableHeader, TableHeaderColumn, TableBody, TableRow } from 'material-ui/Table'
 
 // Child components
+import Header from './Header'
 
   // Salary and Costs
   import Salary from './Salary'
@@ -23,6 +24,15 @@ import {Table, TableBody} from 'material-ui/Table'
   // Day Rate
   import Total from './Total'
 
+// Date information
+// const today = new Date()
+// var dd = today.getDate()
+// var mm = today.getMonth()+1 //January is 0!
+// var yyyy = today.getFullYear()
+
+// using APIs to get
+// const publicHolidays = 12
+
 class Calculator extends Component {
 
   constructor(props) {
@@ -36,7 +46,10 @@ class Calculator extends Component {
       depreciation: 0,
       cellMonthly: 0,
       cellphone: 0,
-      subtotal: 0
+      subtotal: 0,
+      annualLeave: 20,
+      sickLeave: 5,
+      // publicHolidays: 12
     }
   }
 
@@ -95,43 +108,38 @@ class Calculator extends Component {
   render() {
     return (
 
-      <Table selectable={this.state.selectable}>
+        <Table selectable={this.state.selectable}>
 
-        <TableBody>
+          <TableHeader>
+            <TableRow>
+              <TableHeaderColumn>
+                <Header />
+              </TableHeaderColumn>
+            </TableRow>
+          </TableHeader>
 
-          <Salary handleProp={this.handleProp} />
+          <TableBody>
+            <Salary handleProp={this.handleProp} />
+            <Kiwisaver
+              handleProp={this.handleProp}
+              kiwisaver={this.state.kiwisaver}
+            />
+            <Depreciation
+              handleProp={this.handleProp}
+              depreciation={this.state.depreciation}
+            />
+            <Cellphone handleProp={this.handleProp} />
+            <Subtotal subtotal={this.state.subtotal} />
+            <AnnualLeave />
+            <SickLeave />
+            <PublicHolidays />
+            <Weekends />
+            <DaysNotWorking />
+            <DaysWorking />
+            <Total />
+          </TableBody>
 
-          <Kiwisaver
-            handleProp={this.handleProp}
-            kiwisaver={this.state.kiwisaver}
-          />
-
-          <Depreciation
-            handleProp={this.handleProp}
-            depreciation={this.state.depreciation}
-          />
-
-          <Cellphone handleProp={this.handleProp} />
-
-          <Subtotal subtotal={this.state.subtotal} />
-
-          <AnnualLeave />
-
-          <SickLeave />
-
-          <PublicHolidays />
-
-          <Weekends />
-
-          <DaysNotWorking />
-
-          <DaysWorking />
-
-          <Total />
-
-        </TableBody>
-
-      </Table>
+        </Table>
     );
   }
 }
