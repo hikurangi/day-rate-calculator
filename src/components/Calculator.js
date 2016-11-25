@@ -25,10 +25,10 @@ import Header from './Header'
   import Total from './Total'
 
 // Date information
-// const today = new Date()
+const today = new Date()
 // var dd = today.getDate()
 // var mm = today.getMonth()+1 //January is 0!
-// var yyyy = today.getFullYear()
+var thisYear = today.getFullYear()
 
 // using APIs to get
 // const publicHolidays = 12
@@ -47,6 +47,7 @@ class Calculator extends Component {
       cellMonthly: 0,
       cellphone: 0,
       subtotal: 0,
+      thisYear,
       annualLeave: 20,
       sickLeave: 5,
       // publicHolidays: 12
@@ -113,7 +114,7 @@ class Calculator extends Component {
           <TableHeader>
             <TableRow>
               <TableHeaderColumn>
-                <Header />
+                <Header thisYear={this.state.thisYear} />
               </TableHeaderColumn>
             </TableRow>
           </TableHeader>
