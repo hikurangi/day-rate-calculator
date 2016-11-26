@@ -50,7 +50,8 @@ class Calculator extends Component {
       thisYear,
       annualLeave: 20,
       sickLeave: 5,
-      // publicHolidays: 12
+      // publicHolidays: 12,
+      daysWorking: 0,
       daysNotWorking: 0,
     }
   }
