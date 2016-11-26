@@ -4,19 +4,17 @@ import { TableRow, TableRowColumn } from 'material-ui/Table'
 import TextField from 'material-ui/TextField'
 
 const Salary = ({ handleProp }) => {
-  render() {
-    return (
-      <TableRow>
-        <TableRowColumn><h3>Salary</h3></TableRowColumn>
-        <TableRowColumn>
-          <TextField
-            hintText="Enter your expected full time salary"
-            onChange={ handleProp('salary') }
-          />
-        </TableRowColumn>
-      </TableRow>
-    )
-  }
+  return (
+    <TableRow>
+      <TableRowColumn><h3>Salary</h3></TableRowColumn>
+      <TableRowColumn>
+        <TextField
+          hintText="Enter your expected full time salary"
+          onChange={ handleProp('salary') }
+        />
+      </TableRowColumn>
+    </TableRow>
+  )
 }
 
 export default Salary

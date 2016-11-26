@@ -39,6 +39,8 @@ class Calculator extends Component {
   super(props);
     this.state = {
       selectable: false,
+      multiSelectable: false,
+      enableSelectAll: false,
       salary: 0,
       kiwisaver: 0,
       laptopValue: 0,
