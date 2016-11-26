@@ -4,8 +4,6 @@ import { TableRow, TableRowColumn } from 'material-ui/Table'
 
 class Kiwisaver extends Component {
   render() {
-    console.log('this.props.kiwisaver in Kiwisaver',
-    this.props.kiwisaver);
     return (
       <TableRow>
         <TableRowColumn>

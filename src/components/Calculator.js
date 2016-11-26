@@ -59,6 +59,7 @@ class Calculator extends Component {
   // generic event handler
   handleProp = (prop) => {
     return e => {
+      console.log({prop, e})
       this.setState({[prop]:e.target.value}, this.propSwitch(prop)) // makes sure the property handler functions are using the most up-to-date version of the state
     }
   }
