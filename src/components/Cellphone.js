@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import { TableRow, TableRowColumn } from 'material-ui/Table'
 import TextField from 'material-ui/TextField'

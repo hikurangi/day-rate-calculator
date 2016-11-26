@@ -1,16 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import { TableRow, TableRowColumn } from 'material-ui/Table'
 
-class AnnualLeave extends Component {
-  render() {
-    return (
-      <TableRow>
-        <TableRowColumn>Annual leave days</TableRowColumn>
-        <TableRowColumn>20</TableRowColumn>
-      </TableRow>
-    )
-  }
+const AnnualLeave = ({ annualLeave }) => {
+  return (
+    <TableRow>
+      <TableRowColumn>Annual leave days</TableRowColumn>
+      <TableRowColumn>{annualLeave}</TableRowColumn>
+    </TableRow>
+  )
 }
 
 export default AnnualLeave
