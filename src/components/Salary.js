@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import { TableRow, TableRowColumn } from 'material-ui/Table'
 import TextField from 'material-ui/TextField'
 
-class Salary extends Component {
+const Salary = ({ handleProp }) => {
   render() {
     return (
       <TableRow>
@@ -11,7 +11,7 @@ class Salary extends Component {
         <TableRowColumn>
           <TextField
             hintText="Enter your expected full time salary"
-            onChange={this.props.handleProp('salary')}
+            onChange={ handleProp('salary') }
           />
         </TableRowColumn>
       </TableRow>

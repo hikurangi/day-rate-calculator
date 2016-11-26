@@ -6,7 +6,7 @@ const PublicHolidays = ({ publicHolidays }) => {
   return (
     <TableRow>
       <TableRowColumn>Public holidays (this is based on 2016)	</TableRowColumn>
-      <TableRowColumn>12</TableRowColumn>
+      <TableRowColumn>{ publicHolidays }</TableRowColumn>
     </TableRow>
   )
 }
