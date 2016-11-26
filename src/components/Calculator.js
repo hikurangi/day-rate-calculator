@@ -114,13 +114,17 @@ class Calculator extends Component {
           <TableHeader>
             <TableRow>
               <TableHeaderColumn>
-                <Header thisYear={this.state.thisYear} />
+                <Header
+                  thisYear={this.state.thisYear}
+                />
               </TableHeaderColumn>
             </TableRow>
           </TableHeader>
 
           <TableBody>
-            <Salary handleProp={this.handleProp} />
+            <Salary
+              handleProp={this.handleProp}
+            />
             <Kiwisaver
               handleProp={this.handleProp}
               kiwisaver={this.state.kiwisaver}
@@ -129,8 +133,12 @@ class Calculator extends Component {
               handleProp={this.handleProp}
               depreciation={this.state.depreciation}
             />
-            <Cellphone handleProp={this.handleProp} />
-            <Subtotal subtotal={this.state.subtotal} />
+            <Cellphone
+              handleProp={this.handleProp}
+            />
+            <Subtotal
+              subtotal={this.state.subtotal}
+            />
             <AnnualLeave />
             <SickLeave />
             <PublicHolidays />

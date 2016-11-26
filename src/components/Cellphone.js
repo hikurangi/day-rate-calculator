@@ -9,7 +9,7 @@ class Cellphone extends Component {
       <TableRow>
         <TableRowColumn>
           <h3>Monthly cellphone plan</h3>
-          (Employer contribution) 
+          (Employer contribution)
           <TextField                 onChange={this.props.handleProp('cellMonthly')} />
         </TableRowColumn>
         <TableRowColumn>{ this.props.cellphone ? '$ ' + (this.props.cellphone).toFixed(2)*12 : null }</TableRowColumn>
