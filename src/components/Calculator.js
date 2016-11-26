@@ -53,6 +53,7 @@ class Calculator extends Component {
       publicHolidays: 12,
       daysWorking: 0,
       daysNotWorking: 0,
+      total: 0
     }
   }
 
