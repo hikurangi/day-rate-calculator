@@ -64,8 +64,9 @@ class Calculator extends Component {
   // generic event handler
   handleProp = (prop) => {
     return e => {
-      console.log({prop, e})
-      this.setState({[prop]:e.target.value}, this.propSwitch(prop)) // makes sure the property handler functions are using the most up-to-date version of the state
+      console.log('e.target.value', e.target.value)
+      this.setState({[prop]:e.target.value}, this.propSwitch(prop)
+    ) // callback makes sure the property handler functions are using the most up-to-date version of the state
     }
   }
 
@@ -90,7 +91,7 @@ class Calculator extends Component {
   // lower level handler functions
   kiwisaverCalc = () => {
     this.setState({
-      kiwisaver: 0.03 * +(this.state.salary) || 0 // using unary plus operator, similar to Number()
+      kiwisaver: 0.03 * Number(this.state.salary) || 0 // using unary plus operator, similar to Number()
     })
   }
 
