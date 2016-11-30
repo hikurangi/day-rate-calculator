@@ -38,9 +38,12 @@ class Calculator extends Component {
   constructor(props) {
   super(props);
     this.state = {
+      // Material UI state config
       selectable: false,
       multiSelectable: false,
       enableSelectAll: false,
+
+      // actual component state
       salary: 0,
       kiwisaver: 0,
       laptopValue: 0,
@@ -66,7 +69,7 @@ class Calculator extends Component {
     return e => {
       console.log('e.target.value', e.target.value)
       this.setState({[prop]:e.target.value}, this.propSwitch(prop)
-    ) // callback makes sure the property handler functions are using the most up-to-date version of the state
+      ) // makes sure the property handler functions are using the most up-to-date version of the state
     }
   }
 
@@ -90,8 +93,10 @@ class Calculator extends Component {
 
   // lower level handler functions
   kiwisaverCalc = () => {
+    let calculation = 0.03 * Number(this.state.salary)
+    console.log({calculation})
     this.setState({
-      kiwisaver: 0.03 * Number(this.state.salary) || 0 // using unary plus operator, similar to Number()
+      kiwisaver: calculation
     })
   }
 
