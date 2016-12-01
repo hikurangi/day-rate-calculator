@@ -9,7 +9,7 @@ const Kiwisaver = ({kiwisaver}) => {
         <h3>3% Kiwisaver Employer minimum contribution</h3>
       </TableRowColumn>
       <TableRowColumn>
-        { kiwisaver ? '$ ' + (kiwisaver * 12).toFixed(2) : null }
+        { kiwisaver ? '$ ' + kiwisaver.toFixed(2) : null }
       </TableRowColumn> {/* should actually show lower values down to three cents */}
     </TableRow>
   )

@@ -22,7 +22,7 @@ import Header from './Header'
   import DaysWorking from './rows/DaysWorking'
 
   // Day Rate
-  import Total from './Total'
+  import Total from './rows/Total'
 
 // Date information
 const today = new Date()
@@ -38,12 +38,6 @@ class Calculator extends Component {
   constructor(props) {
   super(props);
     this.state = {
-      // Material UI state config
-      selectable: false,
-      multiSelectable: false,
-      enableSelectAll: false,
-
-      // actual component state
       salary: 0,
       kiwisaver: 0,
       laptopValue: 0,
@@ -67,9 +61,7 @@ class Calculator extends Component {
   // generic event handler
   handleProp = (prop) => {
     return e => {
-      console.log('e.target.value', e.target.value)
-      this.setState({[prop]:e.target.value}, this.propSwitch(prop)
-      ) // makes sure the property handler functions are using the most up-to-date version of the state
+      this.setState({[prop]:e.target.value}, this.propSwitch(prop)) // makes sure the property handler functions are using the most up-to-date version of the state
     }
   }
 
@@ -93,7 +85,7 @@ class Calculator extends Component {
 
   // lower level handler functions
   kiwisaverCalc = () => {
-    let calculation = 0.03 * Number(this.state.salary)
+    let calculation = 0.3 * Number(this.state.salary)
     console.log({calculation})
     this.setState({
       kiwisaver: calculation
@@ -123,7 +115,10 @@ class Calculator extends Component {
 
         <Table selectable={this.state.selectable}>
 
-          <TableHeader>
+          <TableHeader
+            displaySelectAll={false}
+            adjustForCheckbox={false}
+            >
             <TableRow>
               <TableHeaderColumn>
                 <Header
