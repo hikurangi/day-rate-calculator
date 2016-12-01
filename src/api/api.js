@@ -13,6 +13,11 @@ const callback = function (response) {
   })
 }
 
+const options = {
+host: 'api.asb.co.nz',
+path: '/public/v1/'
+}
+
 // publicHolidays retrieves the holidays in a given year
 const publicHolidays = function (year, country) {
   //pretty sure that this will be to api object below
@@ -21,11 +26,6 @@ const publicHolidays = function (year, country) {
 
   https.request(options, callback).end()
 
-}
-
-const options = {
-  host: 'api.asb.co.nz',
-  path: '/public/v1/'
 }
 
 const api = {
