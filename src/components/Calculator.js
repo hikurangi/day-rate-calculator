@@ -7,19 +7,19 @@ import { Table, TableHeader, TableHeaderColumn, TableBody, TableRow } from 'mate
 import Header from './Header'
 
   // Salary and Costs
-  import Salary from './Salary'
-  import Kiwisaver from './Kiwisaver'
-  import Depreciation from './Depreciation'
-  import Cellphone from './Cellphone'
-  import Subtotal from './Subtotal'
+  import Salary from './rows/Salary'
+  import Kiwisaver from './rows/Kiwisaver'
+  import Depreciation from './rows/Depreciation'
+  import Cellphone from './rows/Cellphone'
+  import Subtotal from './rows/Subtotal'
 
   // Days
-  import AnnualLeave from './AnnualLeave'
-  import SickLeave from './SickLeave'
-  import PublicHolidays from './PublicHolidays'
-  import Weekends from './Weekends'
-  import DaysNotWorking from './DaysNotWorking'
-  import DaysWorking from './DaysWorking'
+  import AnnualLeave from './rows/AnnualLeave'
+  import SickLeave from './rows/SickLeave'
+  import PublicHolidays from './rows/PublicHolidays'
+  import Weekends from './rows/Weekends'
+  import DaysNotWorking from './rows/DaysNotWorking'
+  import DaysWorking from './rows/DaysWorking'
 
   // Day Rate
   import Total from './Total'
