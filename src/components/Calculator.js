@@ -33,6 +33,7 @@ const today = new Date()
 // var mm = today.getMonth()+1 //January is 0!
 var thisYear = today.getFullYear()
 
+// Calculator
 class Calculator extends Component {
 
   constructor(props) {
@@ -56,9 +57,9 @@ class Calculator extends Component {
     }
   }
 
-  // lifecycle methods
+  // Lifecycle Methods
   componentDidMount() {
-    console.log('api.publicHolidays', api.publicHolidays(10))
+    console.log('api.publicHolidays', api.publicHolidays(thisYear))
   }
   // where to add dollar signs and commas
 
