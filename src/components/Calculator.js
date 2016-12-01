@@ -58,7 +58,7 @@ class Calculator extends Component {
 
   // lifecycle methods
   componentDidMount() {
-    api.publicHolidays(thisYear)
+    console.log('api.publicHolidays', api.publicHolidays(10))
   }
   // where to add dollar signs and commas
 
