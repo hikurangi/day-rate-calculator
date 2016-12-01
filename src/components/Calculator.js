@@ -27,11 +27,14 @@ import Header from './Header'
   // Day Rate
   import Total from './rows/Total'
 
-// Date information
+// Date information - the single source of truth for the swhole app
 const today = new Date()
 // var dd = today.getDate()
 // var mm = today.getMonth()+1 //January is 0!
 var thisYear = today.getFullYear()
+
+// User country
+const country = 'NZ'
 
 // Calculator
 class Calculator extends Component {
@@ -59,7 +62,7 @@ class Calculator extends Component {
 
   // Lifecycle Methods
   componentDidMount() {
-    console.log('api.publicHolidays', api.publicHolidays(thisYear))
+    console.log('api.publicHolidays', api.publicHolidays(thisYear, country))
   }
   // where to add dollar signs and commas
 
