@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 
+// API
+const api = require('../api/api')
+
 // Material UI components
 import { Table, TableHeader, TableHeaderColumn, TableBody, TableRow } from 'material-ui/Table'
 
@@ -30,9 +33,6 @@ const today = new Date()
 // var mm = today.getMonth()+1 //January is 0!
 var thisYear = today.getFullYear()
 
-// using APIs to get
-// const publicHolidays = 12
-
 class Calculator extends Component {
 
   constructor(props) {
@@ -49,18 +49,23 @@ class Calculator extends Component {
       thisYear,
       annualLeave: 20,
       sickLeave: 5,
-      publicHolidays: 12,
+      publicHolidays: 0,
       daysWorking: 0,
       daysNotWorking: 0,
       total: 0
     }
   }
 
+  // lifecycle methods
+  componentDidMount() {
+    api.publicHolidays(thisYear)
+  }
   // where to add dollar signs and commas
 
   // generic event handler
   handleProp = (prop) => {
     return e => {
+      console.log('e.target.value', e.target.value)
       this.setState({[prop]:e.target.value}, this.propSwitch(prop)) // makes sure the property handler functions are using the most up-to-date version of the state
     }
   }
@@ -85,10 +90,8 @@ class Calculator extends Component {
 
   // lower level handler functions
   kiwisaverCalc = () => {
-    let calculation = 0.3 * Number(this.state.salary)
-    console.log({calculation})
     this.setState({
-      kiwisaver: calculation
+      kiwisaver: 0.03 * Number(this.state.salary)
     })
   }
 
@@ -118,7 +121,7 @@ class Calculator extends Component {
           <TableHeader
             displaySelectAll={false}
             adjustForCheckbox={false}
-            >
+          >
             <TableRow>
               <TableHeaderColumn>
                 <Header
@@ -131,9 +134,9 @@ class Calculator extends Component {
           <TableBody>
             <Salary
               handleProp={this.handleProp}
+              salary={this.state.salary}
             />
             <Kiwisaver
-              handleProp={this.handleProp}
               kiwisaver={this.state.kiwisaver}
             />
             <Depreciation
