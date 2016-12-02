@@ -53,7 +53,8 @@ class Calculator extends Component {
       thisYear,
       annualLeave: 20,
       sickLeave: 5,
-      publicHolidays: 0,
+      publicHolidays: 0, // api call - no user input required (if country is assumed)
+      weekends: 0, // also api call - no user input - connected to the first?
       daysWorking: 0,
       daysNotWorking: 0,
       total: 0
