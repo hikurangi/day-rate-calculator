@@ -1,36 +1,48 @@
 const http = require ('http')
-// This calls the ANZ public holidays API to supply this year's public holidays https://developer.asb.co.nz/documentation/public-holidays
+// Originally used the ASB public holidays API https://developer.asb.co.nz/documentation/public-holidays
 
-const callback = function (response) {
-  var str = ''
+// Now using Enrico Service http://kayaposoft.com/enrico/
 
-  response.on('data', function (chunk) {
-    str += chunk
-  })
+// var req = http.request({
+//     withCredentials: false
+// }, function(res) {
+//     //...
+// });
 
-  response.on('end', function () {
-    console.log('api response', str)
-  })
-}
+function publicHolidays(country, year) {
 
-const options = {
-host: 'kayaposoft.com/',
-path: 'enrico/json/v1.0/'
-}
+  const options = {
+    hostname: 'kayaposoft.com',
+    // port: 80, // default
+    path: `/enrico/json/v1.0?action=getPublicHolidaysForYear&year=${year}&country=${country}&region=`,
+    // method: 'GET', // default
+    headers: {
+      'withCredentials': false
+    }
+  };
 
+  const req = http.request(options, (res) => {
+    console.log(`STATUS: ${res.statusCode}`);
+    console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
+    res.setEncoding('utf8');
+    res.on('data', (chunk) => {
+      console.log(`BODY: ${chunk}`);
+    });
+    res.on('end', () => {
+      console.log('No more data in response.');
+    });
+  });
 
-// publicHolidays retrieves the holidays in a given year
-const publicHolidays = function (year, country) {
-  this.options.path += `?action=getPublicHolidaysForYear&year=${year}&country=${country}&jsonp=myfunction`
-  console.log('year in PublicHolidays', year)
+  req.on('error', (e) => {
+    console.log(`problem with request: ${e.message}`);
+  });
 
-  http.request(options, callback).end()
+  req.end();
 
 }
 
 const api = {
-  publicHolidays,
-  options
+  publicHolidays
 }
 
 module.exports = api

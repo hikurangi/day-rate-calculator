@@ -34,7 +34,7 @@ const today = new Date()
 var thisYear = today.getFullYear()
 
 // User country
-const country = 'NZ'
+const country = 'nzl'
 
 // Calculator
 class Calculator extends Component {
