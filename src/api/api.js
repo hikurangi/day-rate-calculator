@@ -17,7 +17,9 @@ function publicHolidays(country, year) {
     path: `/enrico/json/v1.0?action=getPublicHolidaysForYear&year=${year}&country=${country}&region=`,
     // method: 'GET', // default
     headers: {
-      'withCredentials': false
+      'Content-Type': 'application/json;charset=UTF-8',
+      'withCredentials': false,
+      'Access-Control-Allow-Origin': '*'
     }
   };
 
