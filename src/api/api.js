@@ -1,4 +1,4 @@
-const https = require ('https')
+const http = require ('http')
 // This calls the ANZ public holidays API to supply this year's public holidays https://developer.asb.co.nz/documentation/public-holidays
 
 const callback = function (response) {
@@ -14,16 +14,18 @@ const callback = function (response) {
 }
 
 const options = {
-host: 'api.asb.co.nz',
-path: '/public/v1/'
+host: 'kayaposoft.com/',
+path: 'enrico/json/v1.0/'
 }
+
+//http://kayaposoft.com/enrico/json/v1.0/?action=getPublicHolidaysForYear&year=2016&country=nzl&region=
 
 // publicHolidays retrieves the holidays in a given year
 const publicHolidays = function (year, country) {
-  this.options.path += `public-holidays?countryCode=${country}&startDate=${year}-01-01&endDate=${year}-12-31`
+  this.options.path += `?action=getPublicHolidaysForYear&year=${year}&country=${country}&region=`
   console.log('year in PublicHolidays', year)
 
-  https.request(options, callback).end()
+  http.request(options, callback).end()
 
 }
 
