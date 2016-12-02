@@ -18,11 +18,10 @@ host: 'kayaposoft.com/',
 path: 'enrico/json/v1.0/'
 }
 
-//http://kayaposoft.com/enrico/json/v1.0/?action=getPublicHolidaysForYear&year=2016&country=nzl&region=
 
 // publicHolidays retrieves the holidays in a given year
 const publicHolidays = function (year, country) {
-  this.options.path += `?action=getPublicHolidaysForYear&year=${year}&country=${country}&region=`
+  this.options.path += `?action=getPublicHolidaysForYear&year=${year}&country=${country}&jsonp=myfunction`
   console.log('year in PublicHolidays', year)
 
   http.request(options, callback).end()
