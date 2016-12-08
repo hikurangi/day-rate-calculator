@@ -12,7 +12,7 @@ const http = require ('http')
 function publicHolidays(year, country) {
 
   const options = {
-    hostname: 'kayaposoft.com',
+    host: 'kayaposoft.com',
     // port: 80, // default
     path: `/enrico/json/v1.0?action=getPublicHolidaysForYear&year=${year}&country=${country}&region=`,
     // method: 'GET', // default

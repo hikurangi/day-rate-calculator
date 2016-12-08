@@ -95,27 +95,27 @@ class Calculator extends Component {
 
   // lower level handler functions
   kiwisaverCalc = () => {
-    this.setState({
-      kiwisaver: 0.03 * Number(this.state.salary)
-    })
+    this.setState(prevState => ({
+      kiwisaver: 0.03 * Number(prevState.salary)
+    }))
   }
 
   depreciationCalc = () => {
-    this.setState({
-      depreciation: ( this.state.laptopValue / 3 ) / ( this.state.fte * 2 )
-    })
+    this.setState(prevState => ({
+      depreciation: ( prevState.laptopValue / 3 ) / ( prevState.fte * 2 )
+    }))
   }
 
   cellphoneCalc = () => {
-    this.setState({
-      cellphone: this.state.cellMonthly * 12
-    })
+    this.setState(prevState => ({
+      cellphone: prevState.cellMonthly * 12
+    }))
   }
 
   subtotalCalc = () => {
-    this.setState({
-      subtotal: this.state.salary + this.state.kiwisaver + this.state.depreciation + this.state.cellphone
-    })
+    this.setState(prevState => ({
+      subtotal: prevState.salary + prevState.kiwisaver + prevState.depreciation + prevState.cellphone
+    }))
   }
 
   render() {
