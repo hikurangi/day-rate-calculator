@@ -94,8 +94,10 @@ class Calculator extends Component {
   }
 
   // lower level handler functions
-  kiwisaverCalc = () => {
-    this.setState(prevState => ({ kiwisaver: 0.03 * +prevState.salary }))
+  kiwisaverCalc = (e) => {
+    console.log('kiwisaverCalc');
+    this.setState({ salary: +e.target.value }, console.log({state: this.state}))
+    this.setState(prevState => ({ kiwisaver: 0.03 * +prevState.salary }), console.log({state: this.state}))
   }
 
   depreciationCalc = () => {
@@ -134,8 +136,7 @@ class Calculator extends Component {
 
           <TableBody>
             <Salary
-              handleProp={this.handleProp}
-              salary={this.state.salary}
+              onChange={this.state.kiwisaverCalc}
             />
             <Kiwisaver
               kiwisaver={this.state.kiwisaver}
