@@ -8,16 +8,13 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h2>Day Rate Calculator</h2>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Calculator />
       </div>
     );
   }
 }
-
 
 class Calculator extends Component {
   constructor() {
@@ -28,10 +25,12 @@ class Calculator extends Component {
     }
   }
   render() {
-    <div id="calculator">
-      <Salary />
-      <Kiwisaver />
-    </div>
+    return (
+      <div id="calculator">
+        <Salary />
+        <Kiwisaver />
+      </div>
+    )
   }
 }
 
