@@ -26,11 +26,15 @@ class Calculator extends Component {
   }
 
   handleChange = e => { // arrow binds 'this' within the function properly
-    console.log({thisInHandleChange: this});
+    const salary = e.target.value // always a number
     this.setState({
-      salary: +e.target.value,
-
+      salary,
+      kiwisaver: salary * 0.03
     })
+  }
+
+  handleBlur = e => {
+    console.log('blurred!');
   }
 
   render() {
@@ -40,7 +44,9 @@ class Calculator extends Component {
           salary={this.state.salary}
           handleChange={this.handleChange}
         />
-        <Kiwisaver />
+        <Kiwisaver
+          kiwisaver={this.state.kiwisaver}
+        />
       </div>
     )
   }
@@ -51,13 +57,17 @@ const Salary = props => {
     <input
       type="number"
       placeholder={props.salary}
-      onChange={props.handleChange}/>
+      onChange={props.handleChange}
+      onBlur={props.handleBlur}
+    />
   )
 }
 
 const Kiwisaver = props => {
   return (
-    <div></div>
+    <div>
+      <p>{props.kiwisaver ? 'Kiwisaver contribution: $' + props.kiwisaver.toFixed(2) : ''}</p>
+    </div>
   )
 }
 
