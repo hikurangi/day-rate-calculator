@@ -18,4 +18,33 @@ class App extends Component {
   }
 }
 
+
+class Calculator extends Component {
+  constructor() {
+    super()
+    this.state = {
+      salary: null,
+      kiwisaver: null,
+    }
+  }
+  render() {
+    <div id="calculator">
+      <Salary />
+      <Kiwisaver />
+    </div>
+  }
+}
+
+const Salary = props => {
+  return (
+    <input type="text"></input>
+  )
+}
+
+const Kiwisaver = props => {
+  return (
+    <div></div>
+  )
+}
+
 export default App;
