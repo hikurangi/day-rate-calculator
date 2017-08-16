@@ -33,16 +33,11 @@ class Calculator extends Component {
     })
   }
 
-  clearValue = e => {
-    e.target.value = ''
-  }
-
   render() {
     return (
       <div id="calculator">
         <Salary
           salary={this.state.salary}
-          clearValue={this.clearValue}
           handleChange={this.handleChange}
         />
         <Kiwisaver />
@@ -55,8 +50,7 @@ const Salary = props => {
   return (
     <input
       type="number"
-      defaultValue={props.salary}
-      onFocus={props.clearValue}
+      placeholder={props.salary}
       onChange={props.handleChange}/>
   )
 }
