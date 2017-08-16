@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+// Will be moved elsewhere!
+import PropTypes from 'prop-types'
+
 class App extends Component {
   render() {
     return (
@@ -29,7 +32,7 @@ class Calculator extends Component {
     const salary = e.target.value // always a number
     this.setState({
       salary,
-      kiwisaver: salary * 0.03
+      kiwisaver: salary * 0.03,
     })
   }
 
@@ -72,5 +75,14 @@ const Kiwisaver = props => {
 }
 
 // Proptypes validation
+Salary.propTypes = {
+  salary: PropTypes.string,
+  handleChange: PropTypes.func,
+  handleBlur: PropTypes.func,
+}
+
+Kiwisaver.propTypes = {
+  kiwisaver: PropTypes.number,
+}
 
 export default App;
