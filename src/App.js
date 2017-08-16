@@ -20,14 +20,28 @@ class Calculator extends Component {
   constructor() {
     super()
     this.state = {
-      salary: null,
+      salary: "Enter your salary here.",
       kiwisaver: null,
     }
   }
+
+  handleChange(e) {
+    console.log(e.target.value);
+    this.setState({salary: +e.target.value})
+  }
+
+  clearValue(e) {
+    e.target.value = ''
+  }
+
   render() {
     return (
       <div id="calculator">
-        <Salary />
+        <Salary
+          salary={this.state.salary}
+          clearValue={this.clearValue}
+          handleChange={this.handleChange}
+        />
         <Kiwisaver />
       </div>
     )
@@ -36,7 +50,11 @@ class Calculator extends Component {
 
 const Salary = props => {
   return (
-    <input type="text"></input>
+    <input
+      type="text"
+      defaultValue={props.salary}
+      onFocus={props.clearValue}
+      onChange={props.handleChange}/>
   )
 }
 
