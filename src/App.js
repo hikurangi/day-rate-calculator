@@ -34,7 +34,7 @@ class Calculator extends Component {
   }
 
   handleBlur = e => {
-    console.log('blurred!');
+    console.log('blurred!'); // get this working
   }
 
   render() {
@@ -58,7 +58,7 @@ const Salary = props => {
       type="number"
       placeholder={props.salary}
       onChange={props.handleChange}
-      onBlur={props.handleBlur}
+      onBlur={props.handleBlur} // wire this up so it works
     />
   )
 }
@@ -70,5 +70,7 @@ const Kiwisaver = props => {
     </div>
   )
 }
+
+// Proptypes validation
 
 export default App;
