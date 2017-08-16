@@ -25,12 +25,15 @@ class Calculator extends Component {
     }
   }
 
-  handleChange(e) {
-    console.log(e.target.value);
-    this.setState({salary: +e.target.value})
+  handleChange = e => { // arrow binds 'this' within the function properly
+    console.log({thisInHandleChange: this});
+    this.setState({
+      salary: +e.target.value,
+
+    })
   }
 
-  clearValue(e) {
+  clearValue = e => {
     e.target.value = ''
   }
 
@@ -51,7 +54,7 @@ class Calculator extends Component {
 const Salary = props => {
   return (
     <input
-      type="text"
+      type="number"
       defaultValue={props.salary}
       onFocus={props.clearValue}
       onChange={props.handleChange}/>
