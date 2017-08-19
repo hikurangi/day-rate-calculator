@@ -23,16 +23,15 @@ class Calculator extends Component {
   constructor() {
     super()
     this.state = {
-      salary: "Enter your salary here.",
-      kiwisaver: null,
+      salary: null,
+      assets: null,
     }
   }
 
   handleChange = e => { // arrow binds 'this' within the function properly
-    const salary = e.target.value // always a number
     this.setState({
-      salary,
-      kiwisaver: salary * 0.03,
+      [e.target.name]: e.target.value, // destructuring
+      depreciation: (prevState.assets/3)/(fte*2)
     })
   }
 
@@ -48,18 +47,26 @@ class Calculator extends Component {
           handleChange={this.handleChange}
         />
         <Kiwisaver
-          kiwisaver={this.state.kiwisaver}
+          salary={this.state.salary}
+        />
+        <Assets
+          assets={this.state.assets}
+          handleChange={this.handleChange}
+        />
+        <Depreciation
+          depreciation={this.state.depreciation}
         />
       </div>
     )
   }
 }
 
-const Salary = props => {
+const Salary = props => { // all components using the generic handleChange need a 'name' attribute
   return (
     <input
+      name="salary"
       type="number"
-      placeholder={props.salary}
+      placeholder="Enter your salary here."
       onChange={props.handleChange}
       onBlur={props.handleBlur} // wire this up so it works
     />
@@ -69,20 +76,37 @@ const Salary = props => {
 const Kiwisaver = props => {
   return (
     <div>
-      <p>{props.kiwisaver ? 'Kiwisaver contribution: $' + props.kiwisaver.toFixed(2) : ''}</p>
+      {props.kiwisaver ? 'Kiwisaver contribution: $' + props.kiwisaver.toFixed(2) : ''}
+    </div>
+  )
+}
+
+const Assets = props => {
+  return (
+    <input
+      name="assets"
+      type="number"
+      placeholder="Enter the value of any business assets - your laptop for example."
+      onChange={props.handleChange}
+      onBlur={props.handleBlur}
+    />
+  )
+}
+
+const Depreciation = props => {
+  return (
+    <div>
+      {props.depreciation}
     </div>
   )
 }
 
 // Proptypes validation
-Salary.propTypes = {
-  salary: PropTypes.string,
-  handleChange: PropTypes.func,
-  handleBlur: PropTypes.func,
-}
+// Salary.propTypes = {
+//   salary: PropTypes.string,
+//   handleChange: PropTypes.func,
+//   handleBlur: PropTypes.func,
+// }
 
-Kiwisaver.propTypes = {
-  kiwisaver: PropTypes.number,
-}
 
 export default App;
