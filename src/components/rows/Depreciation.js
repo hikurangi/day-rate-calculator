@@ -9,15 +9,14 @@ const Depreciation = ({ handleProp, depreciation }) => {
       <TableRowColumn>
         <h3>Depreciation</h3>
         The cost of your laptop:
-        <TextField
-          onChange={handleProp('laptopValue')}
-        />
+        <TextField/>
         <br/>
         Client pays a 50% share
         <br/>
         Your <a href="http://centraltas.co.nz/assets/SWS/HWIP/A-practical-guide-to-FTE-reporting-2015.pdf" target="blank"> FTE </a>
         <TextField
-          onChange={handleProp('fte')}
+          name="depreciation"
+          onChange={handleProp}
         />
       </TableRowColumn>
       <TableRowColumn>

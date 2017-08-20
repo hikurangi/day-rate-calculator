@@ -9,7 +9,10 @@ const Cellphone = ({ handleProp, cellphone }) => {
       <TableRowColumn>
         <h3>Monthly cellphone plan</h3>
         (Employer contribution)
-        <TextField                 onChange={handleProp('cellMonthly')} />
+        <TextField
+          name="cellphone"
+          onChange={handleProp}
+        />
       </TableRowColumn>
       <TableRowColumn>{ cellphone ? '$ ' + (cellphone).toFixed(2)*12 : null }</TableRowColumn>
     </TableRow>

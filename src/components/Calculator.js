@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 
-// API
-const api = require('../api/api')
-
 // Material UI components
 import { Table, TableHeader, TableHeaderColumn, TableBody, TableRow } from 'material-ui/Table'
 
@@ -26,6 +23,9 @@ import Header from './Header'
 
   // Day Rate
   import Total from './rows/Total'
+
+// API
+const api = require('../api/api')
 
 // Date information - the single source of truth for the swhole app
 const today = new Date()
@@ -68,50 +68,8 @@ class Calculator extends Component {
   // where to add dollar signs and commas
 
   // generic event handler
-  handleProp = (prop) => {
-    return e => {
-      console.log('e.target.value', e.target.value)
-      this.setState({[prop]:e.target.value}, this.propSwitch(prop)) // makes sure the property handler functions are using the most up-to-date version of the state
-    }
-  }
-
-  // propSwitch - handles conditional function execution after the setState call in handleProps
-  propSwitch = (prop) => {
-    switch (prop) {
-      case 'salary':
-        this.kiwisaverCalc()
-        break;
-      case 'laptopValue': // fall-through - omitting the 'break' between the two cases effectively means ( 'laptopValue' || 'fte' ) in this (nested) case
-      case 'fte':
-        this.depreciationCalc()
-        break;
-      case 'cellMonthly':
-        this.cellphoneCalc()
-        break;
-      default:
-        console.log('state set with', this.state[prop])
-    }
-  }
-
-  // lower level handler functions
-  kiwisaverCalc = () => {
-    this.setState(prevState => ({ kiwisaver: 0.03 * +prevState.salary }))
-  }
-
-  depreciationCalc = () => {
-    this.setState(prevState => ({ depreciation: ( prevState.laptopValue / 3 ) / ( prevState.fte * 2 )}))
-  }
-
-  cellphoneCalc = () => {
-    this.setState(prevState => ({
-      cellphone: prevState.cellMonthly * 12
-    }))
-  }
-
-  subtotalCalc = () => {
-    this.setState(prevState => ({
-      subtotal: prevState.salary + prevState.kiwisaver + prevState.depreciation + prevState.cellphone
-    }))
+  handleProp = e => {
+    this.setState({[e.target.name]:e.target.value}) // makes sure the property handler functions are using the most up-to-date version of the state
   }
 
   render() {
@@ -138,17 +96,18 @@ class Calculator extends Component {
               salary={this.state.salary}
             />
             <Kiwisaver
-              kiwisaver={this.state.kiwisaver}
+              kiwisaver={0.03 * this.state.salary}
             />
             <Depreciation
               handleProp={this.handleProp}
-              depreciation={this.state.depreciation}
+              depreciation={(this.state.laptopValue / 3) / (this.state.fte * 2)}
             />
             <Cellphone
               handleProp={this.handleProp}
+              cellphone={this.state.cellMonthly * 12}
             />
             <Subtotal
-              subtotal={this.state.subtotal}
+              subtotal={this.state.salary + this.state.kiwisaver + this.state.depreciation + this.state.cellphone}
             />
             <AnnualLeave />
             <SickLeave />

@@ -9,8 +9,9 @@ const Salary = ({ handleProp, salary }) => {
       <TableRowColumn><h3>Salary</h3></TableRowColumn>
       <TableRowColumn>
         <TextField
+          name="salary"
           hintText="Enter your expected full time salary"
-          onChange={handleProp('salary')}
+          onChange={handleProp}
           defaultValue={salary}
           fullWidth={true}
         />
