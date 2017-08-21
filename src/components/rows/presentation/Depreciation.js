@@ -9,7 +9,7 @@ const Depreciation = ({ style, depreciation }) => {
       </TableRowColumn>
       <TableRowColumn>
         <p style={style.outputNumbers}>
-          { !isNaN(depreciation) ? '$ ' + depreciation.toFixed(2) : '' }
+          { !isNaN(depreciation) && isFinite(depreciation) ? '$ ' + depreciation.toFixed(2) : '' }
         </p>
       </TableRowColumn>
     </TableRow>

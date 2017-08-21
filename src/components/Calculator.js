@@ -59,7 +59,6 @@ class Calculator extends Component {
   constructor(props) {
   super(props);
     this.state = {
-      salary: 0,
       thisYear,
       annualLeave: 20,
       sickLeave: 5,
@@ -125,7 +124,9 @@ class Calculator extends Component {
               style={style}
             />
             <Subtotal
-              subtotal={(this.state.salary + this.state.kiwisaver + this.state.depreciation + this.state.cellphone)}
+              salary={this.state.salary}
+              depreciation={this.state.depreciation}
+              cellphone={this.state.salary}
               style={style}
             />
             <AnnualLeave />
