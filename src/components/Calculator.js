@@ -104,7 +104,7 @@ class Calculator extends Component {
               salary={this.state.salary}
             />
             <Kiwisaver
-              kiwisaver={0.03 * this.state.salary}
+              kiwisaver={this.state.salary * 0.03}
               style={style}
             />
             <Laptop

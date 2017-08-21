@@ -9,7 +9,7 @@ const EmployerPhoneContribution = ({ style, phoneContribution }) => {
       </TableRowColumn>
       <TableRowColumn>
         <p style={style.outputNumbers}>
-          { !isNaN(phoneContribution) ? phoneContribution.toFixed(2) : '' }
+          { !isNaN(phoneContribution) ? '$ ' + phoneContribution.toFixed(2) : '' }
         </p>
       </TableRowColumn>
     </TableRow>
