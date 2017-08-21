@@ -19,6 +19,7 @@ import Header from './Header'
   import FTE from './rows/input/FTE'
   import Depreciation from './rows/presentation/Depreciation'
   import Cellphone from './rows/input/Cellphone'
+  import EmployerPhoneContribution from './rows/presentation/EmployerPhoneContribution'
   import Subtotal from './rows/presentation/Subtotal'
 
   // Days
@@ -121,6 +122,10 @@ class Calculator extends Component {
               handleChange={this.handleChange}
               cellphone={this.state.cellMonthly * 12}
             />
+            <EmployerPhoneContribution
+              cellphone={this.state.cellphone}
+              style={style}
+            />
             <Subtotal
               subtotal={this.state.salary + this.state.kiwisaver + this.state.depreciation + this.state.cellphone}
             />
@@ -132,7 +137,6 @@ class Calculator extends Component {
             <DaysWorking />
             <Total />
           </TableBody>
-
         </Table>
     );
   }
