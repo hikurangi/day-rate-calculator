@@ -34,7 +34,7 @@ import Header from './Header'
   import Total from './rows/Total'
 
 // API
-const api = require('../api/api')
+// const api = require('../api/api')
 
 // Date information - the single source of truth for the swhole app
 const today = new Date()
@@ -43,7 +43,15 @@ const today = new Date()
 var thisYear = today.getFullYear()
 
 // User country
-const country = 'nzl'
+// const country = 'nzl'
+
+// Styles
+
+const style = {
+  outputNumbers: {
+    fontSize: 16,
+  }
+}
 
 // Calculator
 class Calculator extends Component {
@@ -52,12 +60,6 @@ class Calculator extends Component {
   super(props);
     this.state = {
       salary: 0,
-      kiwisaver: 0,
-      laptop: 0,
-      fte: 0,
-      cellMonthly: 0,
-      cellphone: 0,
-      subtotal: 0,
       thisYear,
       annualLeave: 20,
       sickLeave: 5,
@@ -71,9 +73,9 @@ class Calculator extends Component {
   }
 
   // Lifecycle Methods
-  componentDidMount() {
-    console.log('api.publicHolidays', api.publicHolidays(thisYear, country))
-  }
+  // componentDidMount() {
+  //   console.log('api.publicHolidays', api.publicHolidays(thisYear, country))
+  // }
 
   // generic event handler
   handleChange = e => {
@@ -82,9 +84,7 @@ class Calculator extends Component {
 
   render() {
     return (
-
         <Table selectable={this.state.selectable}>
-
           <TableHeader
             displaySelectAll={false}
             adjustForCheckbox={false}
@@ -114,20 +114,19 @@ class Calculator extends Component {
               handleChange={this.handleChange}
             />
             <Depreciation
-              laptop={this.state.laptop}
-              fte={this.state.fte}
+              depreciation={((this.state.laptop/3)/(this.state.fte*2))}
               style={style}
             />
             <Cellphone
               handleChange={this.handleChange}
-              cellphone={this.state.cellMonthly * 12}
             />
             <EmployerPhoneContribution
-              cellphone={this.state.cellphone}
+              phoneContribution={(this.state.cellphone * 12)}
               style={style}
             />
             <Subtotal
-              subtotal={this.state.salary + this.state.kiwisaver + this.state.depreciation + this.state.cellphone}
+              subtotal={(this.state.salary + this.state.kiwisaver + this.state.depreciation + this.state.cellphone)}
+              style={style}
             />
             <AnnualLeave />
             <SickLeave />
@@ -139,12 +138,6 @@ class Calculator extends Component {
           </TableBody>
         </Table>
     );
-  }
-}
-
-const style = {
-  outputNumbers: {
-    fontSize: 16,
   }
 }
 
