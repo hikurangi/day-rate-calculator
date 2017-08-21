@@ -10,7 +10,7 @@ const Kiwisaver = ({kiwisaver}) => {
       </TableRowColumn>
       <TableRowColumn>
         { kiwisaver ? '$ ' + kiwisaver.toFixed(2) : null }
-      </TableRowColumn> {/* should actually show lower values down to three cents */}
+      </TableRowColumn>
     </TableRow>
   )
 }
