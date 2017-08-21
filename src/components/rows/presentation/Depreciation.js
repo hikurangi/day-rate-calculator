@@ -1,7 +1,7 @@
 import React from 'react'
 import { TableRow, TableRowColumn } from 'material-ui/Table'
 
-const Depreciation = ({ handleChange, style, laptop, fte }) => {
+const Depreciation = ({ style, laptop, fte }) => {
   return (
     <TableRow>
       <TableRowColumn>
