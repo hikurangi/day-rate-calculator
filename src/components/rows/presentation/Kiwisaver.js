@@ -1,7 +1,7 @@
 import React from 'react'
-import { TableRow, TableRowColumn, style } from 'material-ui/Table'
+import { TableRow, TableRowColumn } from 'material-ui/Table'
 
-const Kiwisaver = ({kiwisaver}) => {
+const Kiwisaver = ({kiwisaver, style}) => {
   return (
     <TableRow>
       <TableRowColumn>
