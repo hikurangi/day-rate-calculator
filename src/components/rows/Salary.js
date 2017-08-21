@@ -3,7 +3,7 @@ import React from 'react'
 import {TableRow, TableRowColumn} from 'material-ui/Table'
 import TextField from 'material-ui/TextField'
 
-const Salary = ({handleChange, salary}) => {
+const Salary = ({handleChange}) => {
   return (
     <TableRow>
       <TableRowColumn>
