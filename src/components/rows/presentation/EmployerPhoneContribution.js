@@ -9,7 +9,7 @@ const EmployerPhoneContribution = ({ style, cellphone }) => {
       </TableRowColumn>
       <TableRowColumn>
         <p className={style.outputNumbers}>
-          { cellphone ? '$ ' + (cellphone).toFixed(2)*12 : null }
+          { cellphone ? '$ ' + (cellphone * 12).toFixed(2) : null }
         </p>
       </TableRowColumn>
     </TableRow>
