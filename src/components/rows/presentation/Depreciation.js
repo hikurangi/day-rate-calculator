@@ -9,7 +9,7 @@ const Depreciation = ({ handleChange, style, laptop, fte }) => {
       </TableRowColumn>
       <TableRowColumn>
         <p className={style.outputNumbers}>
-          {laptop && fte ? '$ ' + ((laptop/3)/(fte*2)).toFixed(2) : ''}
+          { laptop && fte ? '$ ' + ((laptop/3)/(fte*2)).toFixed(2) : '' }
         </p>
       </TableRowColumn>
     </TableRow>
