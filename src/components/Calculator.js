@@ -68,7 +68,7 @@ class Calculator extends Component {
   // where to add dollar signs and commas
 
   // generic event handler
-  handleProp = e => {
+  handleChange = e => {
     this.setState({[e.target.name]:e.target.value}) // makes sure the property handler functions are using the most up-to-date version of the state
   }
 
@@ -92,18 +92,18 @@ class Calculator extends Component {
 
           <TableBody>
             <Salary
-              handleProp={this.handleProp}
+              handleChange={this.handleChange}
               salary={this.state.salary}
             />
             <Kiwisaver
               kiwisaver={0.03 * this.state.salary}
             />
             <Depreciation
-              handleProp={this.handleProp}
+              handleChange={this.handleChange}
               depreciation={(this.state.laptopValue / 3) / (this.state.fte * 2)}
             />
             <Cellphone
-              handleProp={this.handleProp}
+              handleChange={this.handleChange}
               cellphone={this.state.cellMonthly * 12}
             />
             <Subtotal
