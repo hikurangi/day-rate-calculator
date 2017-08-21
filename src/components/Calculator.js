@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
 
 // Material UI components
-import { Table, TableHeader, TableHeaderColumn, TableBody, TableRow } from 'material-ui/Table'
+import {
+  Table,
+  TableHeader,
+  TableHeaderColumn,
+  TableBody,
+  TableRow
+} from 'material-ui/Table'
 
 // Child components
 import Header from './Header'
@@ -9,6 +15,8 @@ import Header from './Header'
   // Salary and Costs
   import Salary from './rows/Salary'
   import Kiwisaver from './rows/Kiwisaver'
+  import Laptop from './rows/Laptop'
+  import FTE from './rows/FTE'
   import Depreciation from './rows/Depreciation'
   import Cellphone from './rows/Cellphone'
   import Subtotal from './rows/Subtotal'
@@ -44,9 +52,8 @@ class Calculator extends Component {
     this.state = {
       salary: 0,
       kiwisaver: 0,
-      laptopValue: 0,
+      laptop: 0,
       fte: 0,
-      depreciation: 0,
       cellMonthly: 0,
       cellphone: 0,
       subtotal: 0,
@@ -57,7 +64,8 @@ class Calculator extends Component {
       weekends: 0, // also api call - no user input - connected to the first?
       daysWorking: 0,
       daysNotWorking: 0,
-      total: 0
+      total: 0,
+      selectable: false, // material ui customisation
     }
   }
 
@@ -65,7 +73,6 @@ class Calculator extends Component {
   componentDidMount() {
     console.log('api.publicHolidays', api.publicHolidays(thisYear, country))
   }
-  // where to add dollar signs and commas
 
   // generic event handler
   handleChange = e => {
@@ -97,10 +104,18 @@ class Calculator extends Component {
             />
             <Kiwisaver
               kiwisaver={0.03 * this.state.salary}
+              style={style}
+            />
+            <Laptop
+              handleChange={this.handleChange}
+            />
+            <FTE
+              handleChange={this.handleChange}
             />
             <Depreciation
-              handleChange={this.handleChange}
-              depreciation={(this.state.laptopValue / 3) / (this.state.fte * 2)}
+              laptop={this.state.laptop}
+              fte={this.state.fte}
+              style={style}
             />
             <Cellphone
               handleChange={this.handleChange}
@@ -120,6 +135,12 @@ class Calculator extends Component {
 
         </Table>
     );
+  }
+}
+
+const style = {
+  outputNumbers: {
+    fontSize: 16,
   }
 }
 
