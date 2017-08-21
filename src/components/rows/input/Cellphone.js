@@ -3,7 +3,7 @@ import React from 'react'
 import { TableRow, TableRowColumn } from 'material-ui/Table'
 import TextField from 'material-ui/TextField'
 
-const Cellphone = ({ handleProp, cellphone }) => {
+const Cellphone = ({ handleChange, cellphone }) => {
   return (
     <TableRow>
       <TableRowColumn>
@@ -11,7 +11,7 @@ const Cellphone = ({ handleProp, cellphone }) => {
         (Employer contribution)
         <TextField
           name="cellphone"
-          onChange={handleProp}
+          onChange={handleChange}
         />
       </TableRowColumn>
       <TableRowColumn>{ cellphone ? '$ ' + (cellphone).toFixed(2)*12 : null }</TableRowColumn>
