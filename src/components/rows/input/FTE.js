@@ -14,7 +14,7 @@ const FTE = ({ handleChange }) => {
         <TextField
           name="fte"
           type="number"
-          hintText="Enter your FTE"
+          hintText="Generally '1' - meaning 40 hours/week"
           onChange={handleChange}
           fullWidth={true}
         />
