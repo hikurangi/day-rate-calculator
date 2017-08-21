@@ -16,4 +16,4 @@ const EmployerPhoneContribution = ({ style, cellphone }) => {
   )
 }
 
-export default Depreciation
+export default EmployerPhoneContribution
