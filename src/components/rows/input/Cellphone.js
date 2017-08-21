@@ -3,18 +3,19 @@ import React from 'react'
 import { TableRow, TableRowColumn } from 'material-ui/Table'
 import TextField from 'material-ui/TextField'
 
-const Cellphone = ({ handleChange, cellphone }) => {
+const Cellphone = ({ handleChange }) => {
   return (
     <TableRow>
       <TableRowColumn>
-        <h3>Monthly cellphone plan</h3>
-        (Employer contribution)
+        <h3>Cellphone</h3>
+      </TableRowColumn>
+      <TableRowColumn>
         <TextField
           name="cellphone"
+          hintText="Your monthly cellphone costs"
           onChange={handleChange}
         />
       </TableRowColumn>
-      <TableRowColumn>{ cellphone ? '$ ' + (cellphone).toFixed(2)*12 : null }</TableRowColumn>
     </TableRow>
   )
 }
