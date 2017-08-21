@@ -13,13 +13,13 @@ import {
 import Header from './Header'
 
   // Salary and Costs
-  import Salary from './rows/Salary'
-  import Kiwisaver from './rows/Kiwisaver'
-  import Laptop from './rows/Laptop'
-  import FTE from './rows/FTE'
-  import Depreciation from './rows/Depreciation'
-  import Cellphone from './rows/Cellphone'
-  import Subtotal from './rows/Subtotal'
+  import Salary from './rows/input/Salary'
+  import Kiwisaver from './rows/presentation/Kiwisaver'
+  import Laptop from './rows/input/Laptop'
+  import FTE from './rows/input/FTE'
+  import Depreciation from './rows/presentation/Depreciation'
+  import Cellphone from './rows/input/Cellphone'
+  import Subtotal from './rows/presentation/Subtotal'
 
   // Days
   import AnnualLeave from './rows/AnnualLeave'
