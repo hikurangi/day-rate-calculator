@@ -9,7 +9,7 @@ const Kiwisaver = ({ style, kiwisaver }) => {
       </TableRowColumn>
       <TableRowColumn>
         <p style={style.outputNumbers}>
-          { ((kiwisaver !== 0) && !isNaN(kiwisaver)) ? '$ ' + kiwisaver.toFixed(2) : '' }
+          { (kiwisaver !== 0) && !isNaN(kiwisaver) && '$ ' + kiwisaver.toFixed(2) }
         </p>
       </TableRowColumn>
     </TableRow>
