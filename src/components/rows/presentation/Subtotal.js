@@ -9,7 +9,7 @@ const Subtotal = ({style, salary, kiwisaver, depreciation, phoneContribution}) =
       <TableRowColumn><h3>Subtotal</h3></TableRowColumn>
       <TableRowColumn>
         <p style={style.outputNumbers}>
-          { !isNaN(sum) && '$ ' + sum.toFixed(2) }
+          { !isNaN(sum) && '$' + sum.toFixed(2) }
         </p>
       </TableRowColumn>
     </TableRow>
