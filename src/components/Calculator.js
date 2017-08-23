@@ -120,13 +120,14 @@ class Calculator extends Component {
               handleChange={this.handleChange}
             />
             <EmployerPhoneContribution
-              phoneContribution={(this.state.cellphone * 12)}
+              phoneContribution={this.state.cellphone * 12}
               style={style}
             />
             <Subtotal
               salary={this.state.salary}
-              depreciation={this.state.depreciation}
-              cellphone={this.state.salary}
+              kiwisaver={this.state.salary * 0.03}
+              depreciation={((this.state.laptop/3)/(this.state.fte*2))}
+              phoneContribution={this.state.cellphone * 12}
               style={style}
             />
             <AnnualLeave />

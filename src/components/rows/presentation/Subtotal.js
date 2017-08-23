@@ -2,17 +2,14 @@ import React from 'react'
 
 import { TableRow, TableRowColumn } from 'material-ui/Table'
 
-const Subtotal = ({ style, salary, depreciation, cellphone }) => {
-  const subtotal = (...args) => args.reduce((arg, acc) => {
-    console.log({arg, acc});
-    return acc + ((arg === undefined) || (arg === null) || (arg === 0)) ? 0 : arg
-  }, 0)
+const Subtotal = ({style, salary, kiwisaver, depreciation, phoneContribution}) => {
+  const sum = +salary + +kiwisaver + +depreciation + +phoneContribution
   return (
     <TableRow>
       <TableRowColumn><h3>Subtotal</h3></TableRowColumn>
       <TableRowColumn>
         <p style={style.outputNumbers}>
-          { '$ ' + subtotal(salary, salary * 0.03, depreciation, cellphone * 12) }
+          { !isNaN(sum) && '$ ' + sum.toFixed(2) }
         </p>
       </TableRowColumn>
     </TableRow>
