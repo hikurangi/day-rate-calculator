@@ -5,7 +5,7 @@ const EmployerPhoneContribution = ({ style, phoneContribution }) => {
   return (
     <TableRow>
       <TableRowColumn>
-        <h3>Employer Cellphone Contribution</h3>
+        <h3>Employer yearly cellphone contribution</h3>
       </TableRowColumn>
       <TableRowColumn>
         <p style={style.outputNumbers}>
