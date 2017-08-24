@@ -5,7 +5,7 @@ const Depreciation = ({ style, depreciation }) => {
   return (
     <TableRow>
       <TableRowColumn>
-        <h3>Depreciation</h3>
+        <h3>Depreciation over three years:</h3>
       </TableRowColumn>
       <TableRowColumn>
         <p style={style.outputNumbers}>
