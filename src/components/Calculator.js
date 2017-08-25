@@ -133,7 +133,9 @@ class Calculator extends Component {
             <AnnualLeave
               handleChange={this.handleChange}
             />
-            <SickLeave />
+            <SickLeave
+              handleChange={this.handleChange}
+            />
             <PublicHolidays />
             <Weekends />
             <DaysNotWorking />
