@@ -23,7 +23,7 @@ import Header from './Header'
   import Subtotal from './rows/presentation/Subtotal'
 
   // Days
-  import AnnualLeave from './rows/AnnualLeave'
+  import AnnualLeave from './rows/input/AnnualLeave'
   import SickLeave from './rows/SickLeave'
   import PublicHolidays from './rows/PublicHolidays'
   import Weekends from './rows/Weekends'
@@ -130,7 +130,9 @@ class Calculator extends Component {
               phoneContribution={this.state.cellphone * 12}
               style={style}
             />
-            <AnnualLeave />
+            <AnnualLeave
+              handleChange={this.handleChange}
+            />
             <SickLeave />
             <PublicHolidays />
             <Weekends />
