@@ -14,7 +14,7 @@ const Laptop = ({ handleChange }) => {
         <TextField
           name="laptop"
           type="number"
-          hintText="Computer Price"
+          hintText="The price of your computer"
           onChange={handleChange}
           fullWidth={true}
         />
