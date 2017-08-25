@@ -24,7 +24,7 @@ import Header from './Header'
 
   // Days
   import AnnualLeave from './rows/input/AnnualLeave'
-  import SickLeave from './rows/SickLeave'
+  import SickLeave from './rows/input/SickLeave'
   import PublicHolidays from './rows/PublicHolidays'
   import Weekends from './rows/Weekends'
   import DaysNotWorking from './rows/DaysNotWorking'
