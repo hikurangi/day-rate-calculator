@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import dotenv from 'dotenv'
 dotenv.config()
-// Material UI components
+
 import {
   Table,
   TableHeader,
