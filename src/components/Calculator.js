@@ -40,7 +40,7 @@ import Header from './Header'
 const today = new Date()
 // var dd = today.getDate()
 // var mm = today.getMonth()+1 //January is 0!
-var thisYear = today.getFullYear()
+let thisYear = today.getFullYear()
 
 // User country
 // const country = 'nzl'
@@ -69,6 +69,13 @@ class Calculator extends Component {
       total: 0,
       selectable: false, // material ui customisation
     }
+  }
+
+  componentDidMount() {
+    const url = `https://www.googleapis.com/calendar/v3/calendars/calendarId`
+    fetch(url)
+      .then(res => response.json())
+      .then(data => this.setState({ data }, () => console.log(this.state)))
   }
 
   // Lifecycle Methods
