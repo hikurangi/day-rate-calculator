@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import 'dotenv'.config()
+
 // Material UI components
 import {
   Table,
@@ -71,8 +73,11 @@ class Calculator extends Component {
   }
 
   componentDidMount() {
-    const calendarID = `en.new_zealand#holiday@group.v.calendar.google.com`
-    const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarID}`
+    const key = process.env.API_KEY
+    const lang = 'en'
+    const country = 'new_zealand'
+    const calendarID = `${lang}.${country}#holiday@group.v.calendar.google.com`
+    const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarID}/events?key=${key}`
     fetch(url)
       .then(res => res.json())
       .then(data => this.setState({ data }, () => console.log(this.state)))
