@@ -64,7 +64,6 @@ class Calculator extends Component {
       sickLeave: 5,
       publicHolidays: 0, // api call - no user input required (if country is assumed)
       weekends: 0, // also api call - no user input - connected to the first?
-      daysWorking: 0,
       daysNotWorking: 0,
       total: 0,
       selectable: false, // material ui customisation
@@ -72,9 +71,10 @@ class Calculator extends Component {
   }
 
   componentDidMount() {
-    const url = `https://www.googleapis.com/calendar/v3/calendars/calendarId`
+    const calendarID = `en.new_zealand#holiday@group.v.calendar.google.com`
+    const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarID}`
     fetch(url)
-      .then(res => response.json())
+      .then(res => res.json())
       .then(data => this.setState({ data }, () => console.log(this.state)))
   }
 
