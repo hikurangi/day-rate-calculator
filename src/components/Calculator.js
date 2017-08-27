@@ -28,7 +28,7 @@ import Header from './Header'
   import AnnualLeave from './rows/input/AnnualLeave'
   import SickLeave from './rows/input/SickLeave'
   import PublicHolidays from './rows/presentation/PublicHolidays'
-  import Weekends from './rows/Weekends'
+  import Weekends from './rows/presentation/Weekends'
   import DaysNotWorking from './rows/presentation/DaysNotWorking'
   import DaysWorking from './rows/presentation/DaysWorking'
 
@@ -48,7 +48,6 @@ let thisYear = today.getFullYear()
 // const country = 'nzl'
 
 // Styles
-
 const style = {
   outputNumbers: {
     fontSize: 16,
@@ -72,12 +71,14 @@ class Calculator extends Component {
     }
   }
 
-  componentDidMount() {
+  componentDidMount() { // api call should be immediate and in the background. not componentDidMount
     const key = process.env.API_KEY
+    console.log({'process.env': process.env});
     const lang = 'en'
     const country = 'new_zealand'
     const calendarID = `${lang}.${country}#holiday@group.v.calendar.google.com`
     const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarID}/events?key=${key}`
+    console.log({url});
     fetch(url)
       .then(res => res.json())
       .then(data => this.setState({ data }, () => console.log(this.state)))
