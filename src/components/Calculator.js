@@ -27,13 +27,13 @@ import Header from './Header'
   // Days
   import AnnualLeave from './rows/input/AnnualLeave'
   import SickLeave from './rows/input/SickLeave'
-  import PublicHolidays from './rows/PublicHolidays'
+  import PublicHolidays from './rows/presentation/PublicHolidays'
   import Weekends from './rows/Weekends'
-  import DaysNotWorking from './rows/DaysNotWorking'
-  import DaysWorking from './rows/DaysWorking'
+  import DaysNotWorking from './rows/presentation/DaysNotWorking'
+  import DaysWorking from './rows/presentation/DaysWorking'
 
   // Day Rate
-  import Total from './rows/Total'
+  import Total from './rows/presentation/Total'
 
 // API
 // const api = require('../api/api')
@@ -112,7 +112,6 @@ class Calculator extends Component {
           <TableBody>
             <Salary
               handleChange={this.handleChange}
-              salary={this.state.salary}
             />
             <Kiwisaver
               kiwisaver={this.state.salary * 0.03}
@@ -148,11 +147,21 @@ class Calculator extends Component {
             <SickLeave
               handleChange={this.handleChange}
             />
-            <PublicHolidays />
-            <Weekends />
-            <DaysNotWorking />
-            <DaysWorking />
-            <Total />
+            <PublicHolidays
+              data={this.state.data}
+            />
+            <Weekends
+              data={this.state.data}
+            />
+            <DaysNotWorking
+              data={this.state.data}
+            />
+            <DaysWorking
+              data={this.state.data}
+            />
+            <Total
+              data={this.state.data}
+            />
           </TableBody>
         </Table>
     );
