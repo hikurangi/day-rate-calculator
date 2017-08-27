@@ -72,8 +72,9 @@ class Calculator extends Component {
   }
 
   componentDidMount() { // api call should be immediate and in the background. not componentDidMount
-    const key = process.env.REACT_APP_API_KEY
-    console.log({'process.env': process.env});
+    // const key = process.env.REACT_APP_API_KEY
+    // console.log({'process.env': process.env});
+    const key = 'AIzaSyCdA1jcesS6T7VgCuKRZHt8Lw0sIxgrIBk'
     const lang = 'en'
     const country = 'new_zealand'
     const calendarID = `${lang}.${country}#holiday@group.v.calendar.google.com`
