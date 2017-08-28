@@ -5,7 +5,7 @@ import { TableRow, TableRowColumn } from 'material-ui/Table'
 const DaysWorking = ({ daysWorking }) => {
   return (
     <TableRow>
-      <TableRowColumn>Total days you ARE working (365 minus 141)</TableRowColumn>
+      <TableRowColumn>Total number of days you are working this year:</TableRowColumn>
       <TableRowColumn>{ daysWorking }</TableRowColumn>
     </TableRow>
   )
