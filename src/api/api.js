@@ -1,109 +1,132 @@
-var CLIENT_ID = '<YOUR_CLIENT_ID>';
+import fs from 'fs'
+import readline from 'readline'
+import google from 'googleapis'
+import googleAuth from 'google-auth-library'
 
-// Array of API discovery doc URLs for APIs used by the quickstart
-var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+// If modifying these scopes, delete your previously saved credentials
+// at ~/.credentials/calendar-nodejs-quickstart.json
+const SCOPES = ['https://www.googleapis.com/auth/calendar.readonly'];
+const TOKEN_DIR = (process.env.HOME || process.env.HOMEPATH ||
+    process.env.USERPROFILE) + '/.credentials/';
+const TOKEN_PATH = TOKEN_DIR + 'calendar-nodejs-quickstart.json';
 
-// Authorization scopes required by the API; multiple scopes can be
-// included, separated by spaces.
-var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
-//
-// var authorizeButton = document.getElementById('authorize-button');
-// var signoutButton = document.getElementById('signout-button');
-
-/**
-*  On load, called to load the auth2 library and API client library.
-*/
-function handleClientLoad() {
-  gapi.load('client:auth2', initClient);
-}
-
-/**
-*  Initializes the API client library and sets up sign-in state
-*  listeners.
-*/
-function initClient() {
-  gapi.client.init({discoveryDocs: DISCOVERY_DOCS, clientId: CLIENT_ID, scope: SCOPES}).then(function() {
-    // Listen for sign-in state changes.
-    gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
-
-    // Handle the initial sign-in state.
-    updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-    authorizeButton.onclick = handleAuthClick;
-    signoutButton.onclick = handleSignoutClick;
-  });
-}
-
-/**
-*  Called when the signed in status changes, to update the UI
-*  appropriately. After a sign-in, the API is called.
-*/
-function updateSigninStatus(isSignedIn) {
-  if (isSignedIn) {
-    authorizeButton.style.display = 'none';
-    signoutButton.style.display = 'block';
-    listUpcomingEvents();
-  } else {
-    authorizeButton.style.display = 'block';
-    signoutButton.style.display = 'none';
+// Load client secrets from a local file.
+fs.readFile('client_secret.json', function processClientSecrets(err, content) {
+  if (err) {
+    console.log('Error loading client secret file: ' + err);
+    return;
   }
-}
+  // Authorize a client with the loaded credentials, then call the
+  // Google Calendar API.
+  authorize(JSON.parse(content), listEvents);
+});
 
-/**
-*  Sign in the user upon button click.
-*/
-function handleAuthClick(event) {
-  gapi.auth2.getAuthInstance().signIn();
-}
+// /**
+//  * Create an OAuth2 client with the given credentials, and then execute the
+//  * given callback function.
+//  *
+//  * @param {Object} credentials The authorization client credentials.
+//  * @param {function} callback The callback to call with the authorized client.
+//  */
 
-/**
-*  Sign out the user upon button click.
-*/
-function handleSignoutClick(event) {
-  gapi.auth2.getAuthInstance().signOut();
-}
+const authorize = (credentials, callback) => {
+  const clientSecret = credentials.installed.client_secret;
+  const clientId = credentials.installed.client_id;
+  const redirectUrl = credentials.installed.redirect_uris[0];
+  const auth = new googleAuth();
+  const oauth2Client = new auth.OAuth2(clientId, clientSecret, redirectUrl);
 
-/**
-* Append a pre element to the body containing the given message
-* as its text node. Used to display the results of the API call.
-*
-* @param {string} message Text to be placed in pre element.
-*/
-function appendPre(message) {
-  var pre = document.getElementById('content');
-  var textContent = document.createTextNode(message + '\n');
-  pre.appendChild(textContent);
-}
-
-/**
-* Print the summary and start datetime/date of the next ten events in
-* the authorized user's calendar. If no events are found an
-* appropriate message is printed.
-*/
-function listUpcomingEvents() {
-  gapi.client.calendar.events.list({
-    'calendarId': 'primary',
-    'timeMin': (new Date()).toISOString(),
-    'showDeleted': false,
-    'singleEvents': true,
-    'maxResults': 10,
-    'orderBy': 'startTime'
-  }).then(function(response) {
-    var events = response.result.items;
-    appendPre('Upcoming events:');
-
-    if (events.length > 0) {
-      for (i = 0; i < events.length; i++) {
-        var event = events[i];
-        var when = event.start.dateTime;
-        if (!when) {
-          when = event.start.date;
-        }
-        appendPre(event.summary + ' (' + when + ')')
-      }
+  // Check if we have previously stored a token.
+  fs.readFile(TOKEN_PATH, function(err, token) {
+    if (err) {
+      getNewToken(oauth2Client, callback);
     } else {
-      appendPre('No upcoming events found.');
+      oauth2Client.credentials = JSON.parse(token);
+      callback(oauth2Client);
     }
   });
 }
 
-export default api
+// /**
+//  * Get and store new token after prompting for user authorization, and then
+//  * execute the given callback with the authorized OAuth2 client.
+//  *
+//  * @param {google.auth.OAuth2} oauth2Client The OAuth2 client to get token for.
+//  * @param {getEventsCallback} callback The callback to call with the authorized
+//  *     client.
+//  */
+const getNewToken = (oauth2Client, callback) => {
+  const authUrl = oauth2Client.generateAuthUrl({
+    access_type: 'offline',
+    scope: SCOPES
+  });
+  console.log('Authorize this app by visiting this url: ', authUrl);
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+  rl.question('Enter the code from that page here: ', function(code) {
+    rl.close();
+    oauth2Client.getToken(code, function(err, token) {
+      if (err) {
+        console.log('Error while trying to retrieve access token', err);
+        return;
+      }
+      oauth2Client.credentials = token;
+      storeToken(token);
+      callback(oauth2Client);
+    });
+  });
+}
+
+// /**
+//  * Store token to disk be used in later program executions.
+//  *
+//  * @param {Object} token The token to store to disk.
+//  */
+
+const storeToken = token => {
+  try {
+    fs.mkdirSync(TOKEN_DIR);
+  } catch (err) {
+    if (err.code != 'EEXIST') {
+      throw err;
+    }
+  }
+  fs.writeFile(TOKEN_PATH, JSON.stringify(token));
+  console.log('Token stored to ' + TOKEN_PATH);
+}
+
+// /**
+//  * Lists the next 10 events on the user's primary calendar.
+//  *
+//  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
+//  */
+
+const listEvents = auth => {
+  const calendar = google.calendar('v3');
+  calendar.events.list({
+    auth: auth,
+    calendarId: 'primary',
+    timeMin: (new Date()).toISOString(),
+    maxResults: 10,
+    singleEvents: true,
+    orderBy: 'startTime'
+  }, (err, response) => {
+    if (err) {
+      console.log('The API returned an error: ' + err);
+      return;
+    }
+    const events = response.items;
+    if (events.length == 0) {
+      console.log('No upcoming events found.');
+    } else {
+      console.log('Upcoming 10 events:');
+      for (let i = 0; i < events.length; i++) {
+        let event = events[i];
+        let start = event.start.dateTime || event.start.date;
+        console.log('%s - %s', start, event.summary);
+      }
+    }
+  });
+}
