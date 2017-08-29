@@ -36,13 +36,15 @@ import Header from './Header'
   import Total from './rows/presentation/Total'
 
 // API
-// const api = require('../api/api')
+
+import api from '../api/api'
 
 // Date information - the single source of truth for the swhole app
 const today = new Date()
 // var dd = today.getDate()
 // var mm = today.getMonth()+1 //January is 0!
 let thisYear = today.getFullYear()
+
 
 // User country
 // const country = 'nzl'
@@ -74,15 +76,16 @@ class Calculator extends Component {
   componentDidMount() { // api call should be immediate and in the background. not componentDidMount
     // const key = process.env.REACT_APP_API_KEY
     // console.log({'process.env': process.env});
-    const key = 'AIzaSyCdA1jcesS6T7VgCuKRZHt8Lw0sIxgrIBk'
-    const lang = 'en'
-    const country = 'new_zealand'
-    const calendarID = `${lang}.${country}#holiday@group.v.calendar.google.com`
-    const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarID}/events?key=${key}`
-    console.log({url});
-    fetch(url)
-      .then(res => res.json())
-      .then(data => this.setState({ data }, () => console.log(this.state)))
+    // const key = 'AIzaSyCdA1jcesS6T7VgCuKRZHt8Lw0sIxgrIBk'
+    // const lang = 'en'
+    // const country = 'new_zealand'
+    // const calendarID = `${lang}.${country}#holiday@group.v.calendar.google.com`
+    // const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarID}/public/events?key=${key}`
+    // console.log({url});
+    // fetch(url)
+    //   .then(res => res.json())
+    //   .then(data => this.setState({ data }, () => console.log(this.state)))
+    api()
   }
 
   // Lifecycle Methods
