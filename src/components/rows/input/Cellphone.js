@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { TableRow, TableRowColumn } from 'material-ui/Table'
+import {TableRow, TableRowColumn} from 'material-ui/Table'
 import TextField from 'material-ui/TextField'
 
-const Cellphone = ({ handleChange }) => {
+const Cellphone = ({handleChange}) => {
   return (
     <TableRow>
       <TableRowColumn>
