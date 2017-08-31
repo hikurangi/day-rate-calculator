@@ -11,7 +11,8 @@ const SickLeave = ({ handleChange }) => {
       </TableRowColumn>
       <TableRowColumn>
         <TextField
-          name="sick leave" /* possible problem */
+          name="sickLeave"
+          type="number"
           hintText="Your total number of yearly sick leave days"
           onChange={handleChange}
         />
