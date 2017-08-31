@@ -149,7 +149,8 @@ class Calculator extends Component {
               data={this.state.data}
             />
             <Weekends
-              data={this.state.data}
+              weekends={this.state.workdays[0] + this.state.workdays[6]}
+              style={style}
             />
             <DaysNotWorking
               data={this.state.data}
