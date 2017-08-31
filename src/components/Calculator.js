@@ -65,7 +65,8 @@ class Calculator extends Component {
     }
   }
   componentDidMount() {
-    this.setState({ publicHolidays: publicHolidayChecker(country, days.thisYear)})
+    publicHolidayChecker(country, days.thisYear)
+      .then(result => this.setState({publicHolidays: result.length}))
   }
 
   // Generic event handler
