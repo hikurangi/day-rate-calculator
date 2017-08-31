@@ -2,10 +2,10 @@ import React from 'react'
 
 import { TableRow, TableRowColumn } from 'material-ui/Table'
 
-const Weekends = ({ weekends, style }) => {
+const Weekends = ({ weekends, thisYear, style }) => {
   return (
     <TableRow>
-      <TableRowColumn>Weekends</TableRowColumn>
+      <TableRowColumn>Total number of weekend days in { thisYear }:</TableRowColumn>
       <TableRowColumn>
         <p style={style.outputNumbers}>
           { weekends }
