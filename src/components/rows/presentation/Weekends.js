@@ -8,7 +8,7 @@ const Weekends = ({ weekends, style }) => {
       <TableRowColumn>Weekends</TableRowColumn>
       <TableRowColumn>
         <p style={style.outputNumbers}>
-          { !isNaN(weekends) && weekends }
+          { weekends }
         </p></TableRowColumn>
     </TableRow>
   )
