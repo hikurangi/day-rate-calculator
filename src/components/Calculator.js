@@ -64,6 +64,7 @@ class Calculator extends Component {
       selectable: false, // material ui customisation
     }
   }
+
   componentDidMount() {
     publicHolidayChecker(country, days.thisYear)
       .then(result => this.setState({publicHolidays: result.length}))
