@@ -39,7 +39,7 @@ import Header from './Header'
 // import api from '../api/api'
 
 // Date information - the single source of truth for the swhole app
-import workdays from '../helpers/day-counter'
+import days from '../helpers/day-counter'
 
 // User country
 // const country = 'nzl'
