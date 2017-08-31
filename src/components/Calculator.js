@@ -74,12 +74,19 @@ class Calculator extends Component {
     // const country = 'new_zealand'
     // const calendarID = `${lang}.${country}#holiday@group.v.calendar.google.com`
     // const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarID}/public/events?key=${key}`
-    // console.log({url});
+    // `console.log`({url});
     // fetch(url)
     //   .then(res => res.json())
     //   .then(data => this.setState({ data }, () => console.log(this.state)))
   //   api()
   // }
+
+  componentDidMount() {
+    fetch('https://www.kayaposoft.com/enrico/json/v1.0/?action=getPublicHolidaysForYear&year=2017&country=nzl')
+      .then(res => res.json())
+      .then(stuff => console.log({stuff}))
+      .then(data => this.setState({ data }))
+  }
 
   // Lifecycle Methods
   // componentDidMount() {
