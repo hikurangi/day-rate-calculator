@@ -6,7 +6,9 @@ import TextField from 'material-ui/TextField'
 const SickLeave = ({ handleChange }) => {
   return (
     <TableRow>
-      <TableRowColumn>Your total number of yearly sick leave days</TableRowColumn>
+      <TableRowColumn>
+        <h3>Your total number of yearly sick leave days</h3>
+      </TableRowColumn>
       <TableRowColumn>
         <TextField
           name="sick leave" /* possible problem */

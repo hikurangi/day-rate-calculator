@@ -5,7 +5,9 @@ import { TableRow, TableRowColumn } from 'material-ui/Table'
 const Total = ({ total }) => {
   return (
     <TableRow>
-      <TableRowColumn>Your day rate is $82,770 / 224	</TableRowColumn>
+      <TableRowColumn>
+        <h3>Your day rate is</h3>
+      </TableRowColumn>
       <TableRowColumn>{ total }</TableRowColumn>
     </TableRow>
   )
