@@ -7,7 +7,7 @@ const Laptop = ({ handleChange }) => {
     <TableRow>
       <TableRowColumn>
         <h3>
-          The cost of your work PC:
+          The cost of your work PC
         </h3>
       </TableRowColumn>
       <TableRowColumn>

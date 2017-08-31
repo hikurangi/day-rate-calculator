@@ -7,7 +7,7 @@ const FTE = ({ handleChange }) => {
     <TableRow>
       <TableRowColumn>
         <h3>
-          Your <a href="http://centraltas.co.nz/assets/SWS/HWIP/A-practical-guide-to-FTE-reporting-2015.pdf" target="_blank">FTE</a>:
+          Your <a href="http://centraltas.co.nz/assets/SWS/HWIP/A-practical-guide-to-FTE-reporting-2015.pdf" target="_blank">FTE</a>
         </h3>
       </TableRowColumn>
       <TableRowColumn>

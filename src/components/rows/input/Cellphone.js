@@ -7,7 +7,7 @@ const Cellphone = ({handleChange}) => {
   return (
     <TableRow>
       <TableRowColumn>
-        <h3>Your monthly cellphone costs:</h3>
+        <h3>Your monthly cellphone costs</h3>
       </TableRowColumn>
       <TableRowColumn>
         <TextField
