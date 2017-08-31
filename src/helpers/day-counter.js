@@ -1,18 +1,14 @@
 const countDays = (startDate, endDate) => {
-
+  console.log({startDate, endDate});
   const yearInDays = []
   let currentDate = startDate
-
+  console.log({currentDate, 'typeof': typeof currentDate});
+  // let currentDate = new Date()
   while (currentDate <= endDate) {
-    yearInDays.push(new Date(currentDate))
-    currentDate = currentDate.addDays(1);
+    yearInDays.push(currentDate)
+    currentDate = currentDate.setDate(currentDate.getDate() + 1)
   }
-  // while (curDate <= endDate) {
-  //     let dayOfWeek = curDate.getDay();
-  //     if(!((dayOfWeek === 6) || (dayOfWeek === 0)))
-  //        count++;
-  //     curDate.setDate(curDate.getDate() + 1);
-  // }
+
   return yearInDays.reduce((counter, day) => {
       counter[day] ? counter[day]++ : counter[day] = 1
       return counter
