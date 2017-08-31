@@ -1,3 +1,7 @@
+const now = new Date()
+const thisYear = now.getFullYear()
+const [startDate, endDate] = [new Date(`01/01/${thisYear}`), new Date(`12/31/${thisYear}`)]
+
 const countDays = (startDate, endDate) => {
   const yearInDays = []
   let currentDate = startDate
@@ -10,11 +14,7 @@ const countDays = (startDate, endDate) => {
   return yearInDays.reduce((counter, day) => {
       counter[day] ? counter[day]++ : counter[day] = 1
       return counter
-    }, {})
+    }, { thisYear }) // accumulator is initialised with a 'thisYear' value, useful in Calculator component and children
 }
 
-const now = new Date()
-const thisYear = now.getFullYear()
-const [startDate, endDate] = [new Date(`01/01/${thisYear}`), new Date(`12/31/${thisYear}`)]
-
-export default countDays(startDate, endDate) // returns an object with keys corresponding to each day of the week 0-6 where 0=Sunday, and respective values which count how many of those occur during the specified date range, in our case thisYear.
+export default countDays(startDate, endDate) // returns an object with keys corresponding to each day of the week 0-6 where 0=Sunday, and respective values which count how many of those occur during the specified date range, in our case Jan 01 - Dec 31 of this year. Object also supplies a thisYear value for use in the Calculator component.
