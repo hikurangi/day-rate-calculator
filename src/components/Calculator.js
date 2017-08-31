@@ -146,6 +146,7 @@ class Calculator extends Component {
               handleChange={this.handleChange}
             />
             <PublicHolidays
+              thisYear={this.state.days.thisYear}
               data={this.state.data}
             />
             <Weekends
