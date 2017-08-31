@@ -2,11 +2,14 @@ import React from 'react'
 
 import { TableRow, TableRowColumn } from 'material-ui/Table'
 
-const Weekends = ({ weekends }) => {
+const Weekends = ({ weekends, style }) => {
   return (
     <TableRow>
       <TableRowColumn>Weekends</TableRowColumn>
-      <TableRowColumn>{ weekends }</TableRowColumn>
+      <TableRowColumn>
+        <p style={style.outputNumbers}>
+          { !isNaN(weekends) && weekends }
+        </p></TableRowColumn>
     </TableRow>
   )
 }
