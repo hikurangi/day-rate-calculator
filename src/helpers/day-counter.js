@@ -1,11 +1,10 @@
 const countDays = (startDate, endDate) => {
-  console.log({startDate, endDate});
   const yearInDays = []
   let currentDate = startDate
-  console.log({currentDate, 'typeof': typeof currentDate});
   // let currentDate = new Date()
   while (currentDate <= endDate) {
-    yearInDays.push(currentDate)
+    currentDate = new Date(currentDate)
+    yearInDays.push(currentDate.getDay())
     currentDate = currentDate.setDate(currentDate.getDate() + 1)
   }
 
