@@ -85,7 +85,6 @@ class Calculator extends Component {
     fetch('https://www.kayaposoft.com/enrico/json/v1.0/?action=getPublicHolidaysForYear&year=2017&country=nzl') // need to format
       .then(res => res.json())
       .then(json => {
-        console.log({json});
         this.setState({ publicHolidays: json.length })
       })
       .catch(err => console.log({ err }))
