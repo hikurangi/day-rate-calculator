@@ -58,9 +58,6 @@ class Calculator extends Component {
   super(props);
     this.state = {
       days,
-      annualLeave: 20,
-      sickLeave: 5,
-      total: 0,
       selectable: false, // material ui customisation
     }
   }
