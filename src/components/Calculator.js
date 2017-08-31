@@ -36,13 +36,13 @@ import Header from './Header'
   import Total from './rows/presentation/Total'
 
 // API
-// import api from '../api/api'
+import publicHolidayChecker from '../api/public-holiday-checker'
 
 // Date information - the single source of truth for the swhole app
 import days from '../helpers/day-counter'
 
 // User country
-// const country = 'nzl'
+const country = 'nzl'
 
 // Styles
 const style = {
@@ -64,38 +64,11 @@ class Calculator extends Component {
       selectable: false, // material ui customisation
     }
   }
-
-  // componentDidMount() { // api call should be immediate and in the background. not componentDidMount
-    // const key = process.env.REACT_APP_API_KEY
-    // console.log({'process.env': process.env});
-    // const key = 'AIzaSyCdA1jcesS6T7VgCuKRZHt8Lw0sIxgrIBk'
-    // const lang = 'en'
-    // const country = 'new_zealand'
-    // const calendarID = `${lang}.${country}#holiday@group.v.calendar.google.com`
-    // const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarID}/public/events?key=${key}`
-    // `console.log`({url});
-    // fetch(url)
-    //   .then(res => res.json())
-    //   .then(data => this.setState({ data }, () => console.log(this.state)))
-  //   api()
-  // }
-
   componentDidMount() {
-    // if I abstract the fetch into another document, we can just return an object and 'this' is easier to assign.
-    fetch('https://www.kayaposoft.com/enrico/json/v1.0/?action=getPublicHolidaysForYear&year=2017&country=nzl') // need to format
-      .then(res => res.json())
-      .then(json => {
-        this.setState({ publicHolidays: json.length })
-      })
-      .catch(err => console.log({ err }))
+    this.setState({ publicHolidays: publicHolidayChecker(country, days.thisYear)})
   }
 
-  // Lifecycle Methods
-  // componentDidMount() {
-  //   console.log('api.publicHolidays', api.publicHolidays(thisYear, country))
-  // }
-
-  // generic event handler
+  // Generic event handler
   handleChange = e => {
     this.setState({[e.target.name]:e.target.value}) // makes sure the property handler functions are using the most up-to-date version of the state
   }
