@@ -60,7 +60,6 @@ class Calculator extends Component {
       days,
       annualLeave: 20,
       sickLeave: 5,
-      publicHolidays: 0, // api call - no user input required (if country is assumed)
       total: 0,
       selectable: false, // material ui customisation
     }
@@ -85,13 +84,11 @@ class Calculator extends Component {
     // if I abstract the fetch into another document, we can just return an object and 'this' is easier to assign.
     fetch('https://www.kayaposoft.com/enrico/json/v1.0/?action=getPublicHolidaysForYear&year=2017&country=nzl') // need to format
       .then(res => res.json())
-      .then(logging => {
-        console.log({logging})
-        console.log({this});
-        this.setState({publicHolidays: logging}) // unbound 'this' issue, so setState isn't working.
+      .then(json => {
+        console.log({json});
+        this.setState({ publicHolidays: json.length })
       })
-      .then(data => this.setState({ publicHolidays: data }, console.log(this.state))) // this doesn't seem to... could be a result of async or a result of the console log breaking the data chain.
-    console.log(this.state);
+      .catch(err => console.log({ err }))
   }
 
   // Lifecycle Methods
@@ -160,7 +157,8 @@ class Calculator extends Component {
             />
             <PublicHolidays
               thisYear={this.state.days.thisYear}
-              data={this.state.data}
+              publicHolidays={this.state.publicHolidays}
+              style={style}
             />
             <Weekends
               weekends={this.state.days[0] + this.state.days[6]}
