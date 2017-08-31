@@ -17,7 +17,6 @@ const getBusinessDatesCount = (startDate, endDate) => {
 
 const now = new Date()
 const thisYear = now.getFullYear()
-const startDate = new Date(`01/01/${thisYear}`)
-const endDate = new Date(`12/31/${thisYear}`)
+const [startDate, endDate] = [new Date(`01/01/${thisYear}`), new Date(`12/31/${thisYear}`)]
 
 export default getBusinessDatesCount(startDate,endDate)
