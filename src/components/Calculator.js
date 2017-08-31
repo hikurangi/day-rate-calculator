@@ -57,7 +57,7 @@ class Calculator extends Component {
   constructor(props) {
   super(props);
     this.state = {
-      workdays,
+      days,
       annualLeave: 20,
       sickLeave: 5,
       publicHolidays: 0, // api call - no user input required (if country is assumed)
@@ -101,7 +101,7 @@ class Calculator extends Component {
             <TableRow>
               <TableHeaderColumn>
                 <Header
-                  thisYear={this.state.thisYear}
+                  thisYear={this.state.days.thisYear}
                 />
               </TableHeaderColumn>
             </TableRow>
@@ -149,7 +149,8 @@ class Calculator extends Component {
               data={this.state.data}
             />
             <Weekends
-              weekends={this.state.workdays[0] + this.state.workdays[6]}
+              weekends={this.state.days[0] + this.state.days[6]}
+              thisYear={this.state.days.thisYear}
               style={style}
             />
             <DaysNotWorking
