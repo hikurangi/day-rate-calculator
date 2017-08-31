@@ -1,22 +1,26 @@
-// const countWorkdays = inputDays => inputDays.reduce((counter, day) => {
-//     counter[day] ? counter[day]++ : counter[day] = 1
-//     return counter // returns an object with the number of days
-//   }, {})
+const countDays = (startDate, endDate) => {
 
-const getBusinessDatesCount = (startDate, endDate) => {
-    let count = 0;
-    let curDate = startDate;
-    while (curDate <= endDate) {
-        let dayOfWeek = curDate.getDay();
-        if(!((dayOfWeek === 6) || (dayOfWeek === 0)))
-           count++;
-        curDate.setDate(curDate.getDate() + 1);
-    }
-    return count;
+  const yearInDays = []
+  let currentDate = startDate
+
+  while (currentDate <= endDate) {
+    yearInDays.push(new Date(currentDate))
+    currentDate = currentDate.addDays(1);
+  }
+  // while (curDate <= endDate) {
+  //     let dayOfWeek = curDate.getDay();
+  //     if(!((dayOfWeek === 6) || (dayOfWeek === 0)))
+  //        count++;
+  //     curDate.setDate(curDate.getDate() + 1);
+  // }
+  return yearInDays.reduce((counter, day) => {
+      counter[day] ? counter[day]++ : counter[day] = 1
+      return counter
+    }, {})
 }
 
 const now = new Date()
 const thisYear = now.getFullYear()
 const [startDate, endDate] = [new Date(`01/01/${thisYear}`), new Date(`12/31/${thisYear}`)]
 
-export default getBusinessDatesCount(startDate, endDate)
+export default countDays(startDate, endDate) // returns an object with keys corresponding to each day of the week, and respective values which count how many of those occur during the specified date range, in our case thisYear.
