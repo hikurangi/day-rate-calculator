@@ -144,7 +144,12 @@ class Calculator extends Component {
               style={style}
             />
             <DaysWorking
-              data={this.state.data}
+              annualLeave={this.state.annualLeave}
+              sickLeave={this.state.sickLeave}
+              publicHolidays={this.state.publicHolidays}
+              weekends={this.state.days[0] + this.state.days[6]}
+              days={this.state.days}
+              style={style}
             />
             <Total
               data={this.state.data}
