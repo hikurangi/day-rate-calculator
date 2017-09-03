@@ -11,6 +11,8 @@ const DayRate = ({ annualLeave, sickLeave, publicHolidays, weekends, days, salar
 
   const sum = salary + kiwisaver + depreciation + phoneContribution
 
+  console.log({annualLeave, sickLeave, publicHolidays, weekends, days, salary, kiwisaver, depreciation, phoneContribution, style, total, sum});
+
   return (
     <TableRow>
       <TableRowColumn>
@@ -18,7 +20,7 @@ const DayRate = ({ annualLeave, sickLeave, publicHolidays, weekends, days, salar
       </TableRowColumn>
       <TableRowColumn>
         <p style={style.outputNumbers}>
-          { '$' + !isNaN(total) && !isNaN(sum) && annualLeave && sickLeave && sum / total }
+          { '$' + (!isNaN(total) && !isNaN(sum) && annualLeave && sickLeave && (sum / total).toFixed(2)) }
         </p>
       </TableRowColumn>
     </TableRow>
