@@ -74,6 +74,8 @@ class Calculator extends Component {
 
   render() {
     const weekends = this.state.days[0] + this.state.days[6]
+    const depreciation = (this.state.laptop/3)/(this.state.fte*2)
+    
     return (
         <Table selectable={this.state.selectable}>
           <TableHeader
@@ -104,7 +106,7 @@ class Calculator extends Component {
               handleChange={this.handleChange}
             />
             <Depreciation
-              depreciation={((this.state.laptop/3)/(this.state.fte*2))}
+              depreciation={depreciation}
               style={style}
             />
             <Cellphone
@@ -117,7 +119,7 @@ class Calculator extends Component {
             <Subtotal
               salary={this.state.salary}
               kiwisaver={this.state.salary * 0.03}
-              depreciation={((this.state.laptop/3)/(this.state.fte*2))}
+              depreciation={depreciation}
               phoneContribution={this.state.cellphone * 12}
               style={style}
             />
