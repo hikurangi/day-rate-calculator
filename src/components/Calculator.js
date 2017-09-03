@@ -159,6 +159,15 @@ class Calculator extends Component {
               style={style}
             />
             <DayRate
+              annualLeave={this.state.annualLeave}
+              sickLeave={this.state.sickLeave}
+              publicHolidays={this.state.publicHolidays}
+              weekends={weekends}
+              days={this.state.days}
+              salary={this.state.salary}
+              kiwisaver={kiwisaver}
+              depreciation={depreciation}
+              phoneContribution={phoneContribution}
               style={style}
             />
           </TableBody>
