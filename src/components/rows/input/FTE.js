@@ -7,7 +7,7 @@ const FTE = ({ handleChange }) => {
     <TableRow>
       <TableRowColumn>
         <h3>
-          Your <a href="http://centraltas.co.nz/assets/SWS/HWIP/A-practical-guide-to-FTE-reporting-2015.pdf" target="_blank">FTE</a>
+          Your FTE - <a href="http://centraltas.co.nz/assets/SWS/HWIP/A-practical-guide-to-FTE-reporting-2015.pdf" target="_blank">Full Time Equivalent</a>
         </h3>
       </TableRowColumn>
       <TableRowColumn>
