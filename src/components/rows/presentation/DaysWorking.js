@@ -13,7 +13,9 @@ const DaysWorking = ({ annualLeave, sickLeave, publicHolidays, weekends, days, s
         <h3>Total number of days you are working this year</h3>
       </TableRowColumn>
       <TableRowColumn>
-        <p style={style.outputNumbers}>{ !isNaN(total) && annualLeave && sickLeave && total }</p>
+        <p style={style.outputNumbers}>
+          { !isNaN(total) && annualLeave && sickLeave && total }
+        </p>
       </TableRowColumn>
     </TableRow>
   )
