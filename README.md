@@ -1,9 +1,11 @@
 # day-rate-calculator
 A day rate calculator for contract workers using [the form]() from Jodie's awesome talk on contracts at EDA. Uses
-- vanilla [React](https://facebook.github.io/react/)
+- [React](https://facebook.github.io/react/)
 - the [create-react-app](https://github.com/facebookincubator/create-react-app) bootstrapper
 and
 - the [material ui](http://www.material-ui.com/) React component library
+
+[Click here](http://day-rate-calculator.surge.sh/) to try the calculator out!
 
 # The form!
 
