@@ -33,7 +33,7 @@ import Header from './Header'
   import DaysWorking from './rows/presentation/DaysWorking'
 
   // Day Rate
-  import Total from './rows/presentation/Total'
+  import DayRate from './rows/presentation/DayRate'
 
 // API
 import publicHolidayChecker from '../api/public-holiday-checker'
@@ -73,6 +73,7 @@ class Calculator extends Component {
   }
 
   render() {
+    const weekends = this.state.days[0] + this.state.days[6]
     return (
         <Table selectable={this.state.selectable}>
           <TableHeader
@@ -132,7 +133,7 @@ class Calculator extends Component {
               style={style}
             />
             <Weekends
-              weekends={this.state.days[0] + this.state.days[6]}
+              weekends={weekends}
               thisYear={this.state.days.thisYear}
               style={style}
             />
@@ -140,19 +141,19 @@ class Calculator extends Component {
               annualLeave={this.state.annualLeave}
               sickLeave={this.state.sickLeave}
               publicHolidays={this.state.publicHolidays}
-              weekends={this.state.days[0] + this.state.days[6]}
+              weekends={weekends}
               style={style}
             />
             <DaysWorking
               annualLeave={this.state.annualLeave}
               sickLeave={this.state.sickLeave}
               publicHolidays={this.state.publicHolidays}
-              weekends={this.state.days[0] + this.state.days[6]}
+              weekends={weekends}
               days={this.state.days}
               style={style}
             />
-            <Total
-              data={this.state.data}
+            <DayRate
+              style={style}
             />
           </TableBody>
         </Table>
