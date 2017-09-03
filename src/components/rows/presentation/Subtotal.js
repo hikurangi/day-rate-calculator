@@ -3,7 +3,7 @@ import React from 'react'
 import { TableRow, TableRowColumn } from 'material-ui/Table'
 
 const Subtotal = ({style, salary, kiwisaver, depreciation, phoneContribution}) => {
-  const sum = +salary + +kiwisaver + +depreciation + +phoneContribution
+  const sum = salary + kiwisaver + depreciation + phoneContribution
   return (
     <TableRow>
       <TableRowColumn>
