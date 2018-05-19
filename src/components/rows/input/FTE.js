@@ -1,4 +1,3 @@
-// import React                        from 'react'
 import { TableRow, TableRowColumn } from 'material-ui/Table';
 import TextField from 'material-ui/TextField';
 import { h, a, h3 } from 'react-hyperscript-helpers';
@@ -7,12 +6,13 @@ const FTE = ({ handleChange }) =>
   h(TableRow, [
     h(TableRowColumn, [
       h3([
-        'Your FTE',
+        'Your FTE ',
         a(
           {
             href:
               'http://centraltas.co.nz/assets/SWS/HWIP/A-practical-guide-to-FTE-reporting-2015.pdf',
-            target: '_blank'
+            target: '_blank',
+            rel: 'noopener noreferrer'
           },
           'Full Time Equivalent'
         )
