@@ -22,7 +22,11 @@ h(TableRow, [
       name:"fte",
       type:"number",
       hintText:"Generally '1' - meaning 40 hours/week",
+<<<<<<< HEAD
       onChange: handleChange,
+=======
+      onChange: { handleChange },
+>>>>>>> fa478e2f14688ad1e4122942cb3299ab6c0616a1
       fullWidth: true
     })
   ])
