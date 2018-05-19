@@ -9,7 +9,9 @@
     "material-ui": "^0.20.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
-    "react-tap-event-plugin": "^3.0.2"
+    "react-hyperscript-helpers": "^1.2.0",
+    "react-tap-event-plugin": "^3.0.2",
+    "recompose": "^0.27.0"
   },
   "scripts": {
     "start": "react-scripts start",
