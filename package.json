@@ -6,7 +6,10 @@
     "react-scripts": "1.1.4"
   },
   "dependencies": {
+    "husky": "^0.14.3",
+    "lint-staged": "^7.1.1",
     "material-ui": "^0.20.1",
+    "prettier": "^1.12.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-hyperscript-helpers": "^1.2.0",
@@ -17,7 +20,14 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,css}": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
   },
   "homepage": "https://day-rate-calculator.surge.sh"
 }
