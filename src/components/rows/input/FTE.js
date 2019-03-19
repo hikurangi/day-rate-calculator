@@ -1,5 +1,5 @@
-import { TableRow, TableRowColumn } from 'material-ui/Table';
-import TextField from 'material-ui/TextField';
+import { TableRow, TableRowColumn } from '@material-ui/core/Table';
+import TextField from '@material-ui/core/TextField';
 import { h, a, h3 } from 'react-hyperscript-helpers';
 
 const FTE = ({ handleChange }) =>

@@ -1,5 +1,5 @@
-import React from 'react'
-import { TableRow, TableRowColumn } from 'material-ui/Table'
+import React from 'react';
+import { TableRow, TableRowColumn } from '@material-ui/core/Table';
 
 const Kiwisaver = ({ style, kiwisaver }) => {
   return (
@@ -9,11 +9,11 @@ const Kiwisaver = ({ style, kiwisaver }) => {
       </TableRowColumn>
       <TableRowColumn>
         <p style={style.outputNumbers}>
-          { (kiwisaver !== 0) && !isNaN(kiwisaver) && '$' + kiwisaver.toFixed(2) }
+          {kiwisaver !== 0 && !isNaN(kiwisaver) && '$' + kiwisaver.toFixed(2)}
         </p>
       </TableRowColumn>
     </TableRow>
-  )
-}
+  );
+};
 
-export default Kiwisaver
+export default Kiwisaver;

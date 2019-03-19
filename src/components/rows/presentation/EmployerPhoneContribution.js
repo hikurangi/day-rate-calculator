@@ -1,5 +1,5 @@
-import React from 'react'
-import { TableRow, TableRowColumn } from 'material-ui/Table'
+import React from 'react';
+import { TableRow, TableRowColumn } from '@material-ui/core/Table';
 
 const EmployerPhoneContribution = ({ style, phoneContribution }) => {
   return (
@@ -9,11 +9,11 @@ const EmployerPhoneContribution = ({ style, phoneContribution }) => {
       </TableRowColumn>
       <TableRowColumn>
         <p style={style.outputNumbers}>
-          { !isNaN(phoneContribution) && '$' + phoneContribution.toFixed(2) }
+          {!isNaN(phoneContribution) && '$' + phoneContribution.toFixed(2)}
         </p>
       </TableRowColumn>
     </TableRow>
-  )
-}
+  );
+};
 
-export default EmployerPhoneContribution
+export default EmployerPhoneContribution;

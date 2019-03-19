@@ -1,5 +1,5 @@
-import React from 'react'
-import { TableRow, TableRowColumn } from 'material-ui/Table'
+import React from 'react';
+import { TableRow, TableRowColumn } from '@material-ui/core/Table';
 
 const Depreciation = ({ style, depreciation }) => {
   return (
@@ -9,11 +9,13 @@ const Depreciation = ({ style, depreciation }) => {
       </TableRowColumn>
       <TableRowColumn>
         <p style={style.outputNumbers}>
-          { !isNaN(depreciation) && isFinite(depreciation) && '$' + depreciation.toFixed(2) }
+          {!isNaN(depreciation) &&
+            isFinite(depreciation) &&
+            '$' + depreciation.toFixed(2)}
         </p>
       </TableRowColumn>
     </TableRow>
-  )
-}
+  );
+};
 
-export default Depreciation
+export default Depreciation;

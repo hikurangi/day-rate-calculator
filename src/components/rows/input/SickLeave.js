@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-import { TableRow, TableRowColumn } from 'material-ui/Table'
-import TextField from 'material-ui/TextField'
+import { TableRow, TableRowColumn } from '@material-ui/core/Table';
+import TextField from '@material-ui/core/TextField';
 
 const SickLeave = ({ handleChange }) => {
   return (
@@ -18,7 +18,7 @@ const SickLeave = ({ handleChange }) => {
         />
       </TableRowColumn>
     </TableRow>
-  )
-}
+  );
+};
 
-export default SickLeave
+export default SickLeave;

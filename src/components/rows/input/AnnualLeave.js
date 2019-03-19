@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-import { TableRow, TableRowColumn } from 'material-ui/Table'
-import TextField from 'material-ui/TextField'
+import { TableRow, TableRowColumn } from '@material-ui/core/Table';
+import TextField from '@material-ui/core/TextField';
 
 const AnnualLeave = ({ handleChange }) => {
   return (
@@ -18,7 +18,7 @@ const AnnualLeave = ({ handleChange }) => {
         />
       </TableRowColumn>
     </TableRow>
-  )
-}
+  );
+};
 
-export default AnnualLeave
+export default AnnualLeave;

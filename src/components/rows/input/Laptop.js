@@ -1,14 +1,12 @@
-import React from 'react'
-import { TableRow, TableRowColumn } from 'material-ui/Table'
-import TextField from 'material-ui/TextField'
+import React from 'react';
+import { TableRow, TableRowColumn } from '@material-ui/core/Table';
+import TextField from '@material-ui/core/TextField';
 
 const Laptop = ({ handleChange }) => {
   return (
     <TableRow>
       <TableRowColumn>
-        <h3>
-          The cost of your work PC
-        </h3>
+        <h3>The cost of your work PC</h3>
       </TableRowColumn>
       <TableRowColumn>
         <TextField
@@ -20,7 +18,7 @@ const Laptop = ({ handleChange }) => {
         />
       </TableRowColumn>
     </TableRow>
-  )
-}
+  );
+};
 
-export default Laptop
+export default Laptop;
