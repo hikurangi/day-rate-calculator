@@ -49,3 +49,6 @@ build
 # misc
 .DS_Store
 .env
+
+# workspace config
+.vscode
