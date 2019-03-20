@@ -29,8 +29,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "precommit": "lint-staged"
+    "eject": "react-scripts eject"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,json,css}": [
@@ -38,5 +37,10 @@
       "git add"
     ]
   },
-  "homepage": "https://day-rate-calculator.surge.sh"
+  "homepage": "https://day-rate-calculator.surge.sh",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
 }
