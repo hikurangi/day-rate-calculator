@@ -23,6 +23,7 @@
   "dependencies": {
     "@material-ui/core": "^3.9.2",
     "@material-ui/styles": "^3.0.0-alpha.10",
+    "date-fns": "^2.0.0-alpha.27",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-hyperscript-helpers": "^2.0.0"

@@ -1,10 +1,10 @@
-import { h } from 'react-hyperscript-helpers';
-import Layout from './components/layout';
+import './app.css'
+import Layout from './components/layout'
+import { h }  from 'react-hyperscript-helpers'
 // import 'typeface-roboto'
-import './app.css';
 
 const App = () => {
-  return h(Layout);
-};
+  return h(Layout) // should explicitly pass child elements here
+}
 
-export default App;
+export default App
