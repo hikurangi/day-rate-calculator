@@ -1,9 +1,12 @@
 import { h, p }     from 'react-hyperscript-helpers'
 import FormControl  from '@material-ui/core/FormControl'
-import Input        from '@material-ui/core/Input'
+// import Input        from '@material-ui/core/Input'
+import TextField    from '@material-ui/core/TextField'
 import { useState } from 'react'
+import { useModel } from '../hooks'
 
 // Salary and Costs
+const KIWISAVER_MULTIPLIER = 0.03
 
 // import Salary                    from './rows/input/Salary'
 // import Kiwisaver                 from './rows/presentation/Kiwisaver'
@@ -27,19 +30,10 @@ import { useState } from 'react'
 
 // import DayRate                   from './rows/presentation/DayRate'
 
-const inputs = [
-  {
-    name: 'salary',
-    placeholder: 'Salary',
-    type: 'number'
-  }
-]
-
 const Form = ({ workingDays }) => {
   const [state, setState] = useState({})
-  const handleChange = ({ name }) => {
-    
-  }
+  const { model, bindInput, setModel, unsetValue } = useModel({})
+  const { salary } = model
 
   return h(FormControl, [
     p(
@@ -47,7 +41,11 @@ const Form = ({ workingDays }) => {
       and you’re there for a very specific task / project. You can probably be terminated with very little notice. The good news is, 
       if you are going to be a Contractor, you can expect to be paid a bit more to compensate for the lack of job security. 
       When you’re calculating how much you need to earn, you could consider the following:`
-    )
+    ),
+    // TODO: mask input, hide spinners
+    h(TextField, { ...bindInput('salary'), type: 'number' }),
+    // TODO: rounding, make look nice
+    salary && p(`Kiwisaver Employer minimum contribution: $ ${salary * KIWISAVER_MULTIPLIER}`)
   ])
 }
 

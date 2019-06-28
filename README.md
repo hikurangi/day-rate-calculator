@@ -1,5 +1,5 @@
 # day-rate-calculator
-A day rate calculator for contract workers using [the form]() from Jodie's awesome talk on contracts at EDA. Uses
+A day rate calculator for contract workers using [the form]() from Jody's awesome talk on contracts at EDA. Uses
 - [React](https://facebook.github.io/react/)
 - the [create-react-app](https://github.com/facebookincubator/create-react-app) bootstrapper
 and

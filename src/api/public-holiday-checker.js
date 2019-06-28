@@ -1,4 +1,4 @@
-import differenceInMilliseconds from 'date-fns/differenceInMilliseconds'
+import differenceInMilliseconds from 'date-fns/difference_in_milliseconds'
 
 // constants
 const EXPIRY = 1000 * 60 * 60 * 24 * 7 // one week
@@ -14,8 +14,10 @@ const publicHolidayChecker = (country, year) => {
 
 export default publicHolidayChecker
 
-function isExpired (timestamp) {
-  const now = new Date()
-  const formattedDate = new Date(timestamp)
-  return differenceInMilliseconds(now, formattedDate) >  EXPIRY
-}
+// TODO: cache
+
+// function isExpired (timestamp) {
+//   const now = new Date()
+//   const formattedDate = new Date(timestamp)
+//   return differenceInMilliseconds(now, formattedDate) >  EXPIRY
+// }

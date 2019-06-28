@@ -2,7 +2,7 @@ import { Fragment }              from 'react'
 import { h, img, h2, h3, em, p } from 'react-hyperscript-helpers'
 import { makeStyles }            from '@material-ui/styles'
 import { thisYear }              from '../helpers/day-counter'
-import logo                      from '../assets/logo.svg'
+import logo                      from '../static/logo.svg'
 
 const useStyles = makeStyles({
   appLogo: {
@@ -16,6 +16,7 @@ const Header = () => { // TODO: i18n
 
   return h(Fragment, [
 
+    // TODO: fix this error
     img({ src: logo, className: appLogo, alt: 'App Logo' }),
     h2('Contractor Day Rate Calculator'),
     h3([em(`accurate for ${thisYear}`)]),
