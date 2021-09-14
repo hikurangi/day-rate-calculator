@@ -27,7 +27,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-hyperscript-helpers": "^2.0.0",
-    "set-value": "^3.0.1",
+    "set-value": "^4.0.1",
     "unset-value": "^1.0.0"
   },
   "scripts": {
